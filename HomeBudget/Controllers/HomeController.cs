@@ -20,9 +20,9 @@ namespace HomeBudget.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult History()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Your history page.";
 
             return View();
         }
