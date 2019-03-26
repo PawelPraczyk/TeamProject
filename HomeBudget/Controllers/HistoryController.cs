@@ -11,6 +11,8 @@ namespace HomeBudget.Controllers
         
         public ActionResult HistoryPage()
         {
+            ViewBag.Message = "The list of purchases.";
+
             return View();
         }
     }
