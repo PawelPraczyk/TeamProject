@@ -1,2 +1,13 @@
-﻿
+﻿@model HomeBudget.Models.Category
+
 <h3>@ViewBag.Message</h3>
+
+<table id="historytable">
+    <caption>The list of previous purchases</caption>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Name)</th>
+        <th>@Html.DisplayNameFor(model => model.Price)</th>
+        <th>@Html.DisplayNameFor(model => model.User)</th>
+        <th>@Html.DisplayNameFor(model => model.AddDate)</th>
+    </tr>
+</table>
