@@ -6816,6 +6816,7 @@ td.visible-print {
 }
 #historytable {
     width: 100%;
+    margin-top: 100px;
     margin-bottom: 20px;
-    color: aqua;
+    color: black;
 }

@@ -20,11 +20,6 @@ namespace HomeBudget.Controllers
             return View();
         }
 
-        public ActionResult History()
-        {
-            ViewBag.Message = "Your history page.";
-
-            return View();
-        }
+        
     }
 }
