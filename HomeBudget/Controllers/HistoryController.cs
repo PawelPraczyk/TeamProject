@@ -8,7 +8,7 @@ namespace HomeBudget.Controllers
 {
     public class HistoryController : Controller
     {
-        
+        [Authorize]
         public ActionResult HistoryPage()
         {
             ViewBag.Message = "The list of purchases.";
