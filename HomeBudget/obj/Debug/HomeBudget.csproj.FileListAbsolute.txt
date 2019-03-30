@@ -222,3 +222,6 @@ C:\Users\Weronika\Desktop\studia\SEMESTR 6\PROJEKT ZESPOLOWY\projektkurwaaa\Home
 C:\Users\Weronika\Desktop\studia\SEMESTR 6\PROJEKT ZESPOLOWY\projektkurwaaa\HomeBudget\obj\Debug\HomeBudget.Migrations.CreateExpenseTable.resources
 C:\Users\Weronika\Desktop\studia\SEMESTR 6\PROJEKT ZESPOLOWY\projektkurwaaa\HomeBudget\obj\Debug\HomeBudget.Migrations.OverrideConventionsForExpenseAndCategory.resources
 C:\Users\Weronika\Desktop\studia\SEMESTR 6\PROJEKT ZESPOLOWY\projektkurwaaa\HomeBudget\obj\Debug\HomeBudget.Migrations.PopulateCategoriesTable.resources
+C:\Users\Weronika\Desktop\studia\SEMESTR 6\PROJEKT ZESPOLOWY\projektkurwaaa\HomeBudget\obj\Debug\HomeBudget.Migrations.CreateIncomeTable1.resources
+C:\Users\Weronika\Desktop\studia\SEMESTR 6\PROJEKT ZESPOLOWY\projektkurwaaa\HomeBudget\obj\Debug\HomeBudget.Migrations.PopulateCategoriesIncomeTable.resources
+C:\Users\Weronika\Desktop\studia\SEMESTR 6\PROJEKT ZESPOLOWY\projektkurwaaa\HomeBudget\obj\Debug\HomeBudget.Migrations.UpdateOperations.resources

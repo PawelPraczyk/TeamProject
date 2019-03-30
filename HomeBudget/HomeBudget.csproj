@@ -193,6 +193,7 @@
     <Compile Include="Controllers\ExpensesController.cs" />
     <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IncomesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MyDateController.cs" />
     <Compile Include="Global.asax.cs">
@@ -214,17 +215,32 @@
     <Compile Include="Migrations\201903301213007_PopulateCategoriesTable.Designer.cs">
       <DependentUpon>201903301213007_PopulateCategoriesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903302049534_CreateIncomeTable1.cs" />
+    <Compile Include="Migrations\201903302049534_CreateIncomeTable1.Designer.cs">
+      <DependentUpon>201903302049534_CreateIncomeTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903302056113_PopulateCategoriesIncomeTable.cs" />
+    <Compile Include="Migrations\201903302056113_PopulateCategoriesIncomeTable.Designer.cs">
+      <DependentUpon>201903302056113_PopulateCategoriesIncomeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903302057316_UpdateOperations.cs" />
+    <Compile Include="Migrations\201903302057316_UpdateOperations.Designer.cs">
+      <DependentUpon>201903302057316_UpdateOperations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\CategoryIncome.cs" />
     <Compile Include="Models\Expense.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Income.cs" />
     <Compile Include="Models\JqDate.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ExpenseFormViewModel.cs" />
+    <Compile Include="ViewModels\IncomeFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -327,6 +343,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Expenses\Create.cshtml" />
+    <Content Include="Views\Incomes\CreateIncome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -355,6 +372,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903301213007_PopulateCategoriesTable.resx">
       <DependentUpon>201903301213007_PopulateCategoriesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903302049534_CreateIncomeTable1.resx">
+      <DependentUpon>201903302049534_CreateIncomeTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903302056113_PopulateCategoriesIncomeTable.resx">
+      <DependentUpon>201903302056113_PopulateCategoriesIncomeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903302057316_UpdateOperations.resx">
+      <DependentUpon>201903302057316_UpdateOperations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

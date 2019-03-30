@@ -1,0 +1,24 @@
+﻿@model HomeBudget.ViewModels.IncomeFormViewModel
+@{
+    ViewBag.Title = "CreateIncome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add an income</h2>
+@using (Html.BeginForm("CreateIncome", "Incomes"))
+{
+    //@Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(m => m.Price)
+        @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Category)
+        @Html.DropDownListFor(m => m.Category, new SelectList(Model.CategoryIncomes, "Id", "Name", "Color"), "", new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
