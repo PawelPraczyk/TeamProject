@@ -8,10 +8,13 @@ namespace HomeBudget.Models
 {
     public class Category
     {
-        public int Id { get; set; }
+        public byte Id { get; set; }
+
+        [Required]
         public string Name { get; set; }
-        public decimal Price { get; set; }
-        public ApplicationUser User { get; set; }
-        public DateTime AddDate { get; set; }
+
+        [Required]
+        public string Color { get; set; }
+        //public Image Icon { get; set; }
     }
 }
