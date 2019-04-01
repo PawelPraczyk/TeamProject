@@ -227,6 +227,10 @@
     <Compile Include="Migrations\201903302057316_UpdateOperations.Designer.cs">
       <DependentUpon>201903302057316_UpdateOperations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904011051290_Edittable.cs" />
+    <Compile Include="Migrations\201904011051290_Edittable.Designer.cs">
+      <DependentUpon>201904011051290_Edittable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -320,7 +324,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\History\HistoryPage.cshtml" />
+    <Content Include="Views\History\Balance.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -344,6 +348,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Expenses\Create.cshtml" />
     <Content Include="Views\Incomes\CreateIncome.cshtml" />
+    <Content Include="Views\History\Outgoings.cshtml" />
+    <Content Include="Views\History\Incomes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -381,6 +387,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903302057316_UpdateOperations.resx">
       <DependentUpon>201903302057316_UpdateOperations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904011051290_Edittable.resx">
+      <DependentUpon>201904011051290_Edittable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

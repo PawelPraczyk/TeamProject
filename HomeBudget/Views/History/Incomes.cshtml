@@ -1,0 +1,35 @@
+﻿@model IEnumerable<HomeBudget.Models.Income> 
+@{
+    ViewBag.Title = "Incomes";
+}
+
+<h2 style="margin-top: 50px;">@ViewBag.Title.</h2>
+
+<h3>@ViewBag.Message</h3>
+
+<div class="nav-history">
+    <ul>
+        <li>@Html.ActionLink("Incomes", "Incomes")</li>
+        <li>@Html.ActionLink("Balance", "Balance")</li>
+        <li>@Html.ActionLink("Outgoings", "Outgoings")</li>
+    </ul>
+</div>
+
+<table id="incomestable">
+    <caption>The list of previous incomes</caption>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.CategoryIncome)</th>
+        <th>@Html.DisplayNameFor(model => model.Price)</th>
+        <th>@Html.DisplayNameFor(model => model.User)</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(itemModel => item.CategoryIncome.Name)</td>
+            <td>@Html.DisplayFor(itemModel => item.Price)</td>
+            <td>@Html.DisplayFor(itemModel => item.User.UserName)</td>
+        </tr>
+    }
+
+</table>

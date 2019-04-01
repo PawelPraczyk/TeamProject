@@ -16,7 +16,6 @@ namespace HomeBudget.Models
         [Required]
         public decimal Price { get; set; }
 
-        [Required]
         public Category Category { get; set; }
 
         //[Required]
