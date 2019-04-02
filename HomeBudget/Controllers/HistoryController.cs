@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HomeBudget.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace HomeBudget.Controllers
 {
@@ -23,19 +25,19 @@ namespace HomeBudget.Controllers
 
             return View();
         }
-        public ActionResult Incomes()
+        public ActionResult Incomes( int? i)
         {
             var incomesHistory = _context.Incomes
                 .Include(g => g.CategoryIncome)
-                .Include(g => g.User);
+                .Include(g => g.User).ToList().ToPagedList(i ?? 1,10);
 
             return View(incomesHistory);
         }
-        public ActionResult Outgoings()
+        public ActionResult Outgoings(int? i)
         {
             var expensesHistory = _context.Expenses
                 .Include(g => g.Category)
-                .Include(g => g.User);
+                .Include(g => g.User).ToList().ToPagedList(i ?? 1,10);
 
 
             return View(expensesHistory);

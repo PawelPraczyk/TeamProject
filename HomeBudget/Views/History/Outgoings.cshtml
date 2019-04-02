@@ -1,7 +1,11 @@
-﻿@model IEnumerable<HomeBudget.Models.Expense>
+﻿@model IPagedList<HomeBudget.Models.Expense>
 @{
     ViewBag.Title = "Outgoings";
 }
+
+@using PagedList;
+@using PagedList.Mvc;
+
 <h2 style="margin-top: 50px;">@ViewBag.Title.</h2>
 
 <h3>@ViewBag.Message</h3>
@@ -18,9 +22,9 @@
 <table id="outgoingstable">
     <caption>The list of previous purchases</caption>
     <tr>
-        <th>@Html.DisplayNameFor(model => model.Category)</th>
-        <th>@Html.DisplayNameFor(model => model.Price)</th>
-        <th>@Html.DisplayNameFor(model => model.User)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Category)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Price)</th>
+        <th>@Html.DisplayNameFor(model => model.First().User)</th>
     </tr>
 
 
@@ -33,7 +37,9 @@
             <td>@Html.DisplayFor(modelItem => item.User.UserName)</td>
         </tr>
     }
-    
 
-   
+
+
 </table>
+
+@Html.PagedListPager(Model, i => Url.Action("Incomes", "History", new { i, search = Request.QueryString["search"] }))
