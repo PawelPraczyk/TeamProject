@@ -24,7 +24,7 @@ namespace HomeBudget.Controllers
         {
             var viewModel = new ExpenseFormViewModel
             {
-                Categories = _context.Categories.ToList()
+                Categories = _context.Categories.ToList(),
             };
             return View(viewModel);
         }
@@ -40,7 +40,8 @@ namespace HomeBudget.Controllers
             {
                 User = user,
                 Price = viewModel.Price,
-                Category = category
+                Category = category,
+                Date = viewModel.Date               
             };
             _context.Expenses.Add(expense);
             _context.SaveChanges();

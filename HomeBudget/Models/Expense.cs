@@ -18,8 +18,8 @@ namespace HomeBudget.Models
 
         public Category Category { get; set; }
 
-        //[Required]
-        //public DateTime Date { get; set; }
+        [Required]
+        public DateTime Date { get; set; }
 
         [Required]
         public byte CategoryId { get; set; }

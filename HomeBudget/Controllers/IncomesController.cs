@@ -40,7 +40,8 @@ namespace HomeBudget.Controllers
             {
                 User = user,
                 Price = viewModel.Price,
-                CategoryIncome = category
+                CategoryIncome = category,
+                Date = viewModel.Date
             };
             _context.Incomes.Add(income);
             _context.SaveChanges();

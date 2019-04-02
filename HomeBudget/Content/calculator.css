@@ -1,0 +1,177 @@
+﻿body {
+    background: #777;
+}
+
+#background {
+    width: 150px;
+    height: 170px;
+    background: gray;
+    margin: 25px auto;
+}
+
+button {
+    border: 0;
+    color: #fff;
+}
+
+#result {
+    display: block;
+    font-family: sans-serif;
+    width: 115px;
+    height: 20px;
+    margin: 5px auto;
+    text-align: right;
+    border: 0;
+    background: #3b3535;
+    color: #fff;
+    padding-top: 4px;
+    font-size: 10px;
+    margin-left: 12px;
+    outline: none;
+    overflow: hidden;
+    letter-spacing: 2px;
+    position: relative;
+    top: 5px;
+}
+
+    #result:hover {
+        cursor: text;
+    }
+
+#first-rows {
+    margin-bottom: 10px;
+    position: relative;
+    top: 5px;
+}
+
+.rows {
+    width: 150px;
+    margin-top: 5px;
+}
+
+#delete {
+    width: 55px;
+    height: 25px;
+    margin-left: 12px;
+    border-radius: 2px;
+}
+
+/* Aligning the division and dot button properly */
+.fall-back {
+    margin-left: 2px !important;
+}
+
+/* Aligning the addition and equals to button properly */
+.align {
+    margin-left: 3px !important;
+}
+
+/* Button styling */
+.btn-style {
+    width: 25px;
+    height: 25px;
+    margin-left: 3px;
+    border-radius: 2px;
+}
+
+.eqn {
+    width: 25px;
+    height: 25px;
+    margin-left: 3px;
+    border-radius: 2px;
+}
+
+.first-child {
+    margin-left: 12px;
+}
+
+
+/* Adding background color to the number values */
+.num-bg {
+    background: #000;
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+    border-bottom: 2px solid #333;
+}
+
+    .num-bg:active {
+        background: #000;
+        color: #fff;
+        font-size: 13px;
+        cursor: pointer;
+        outline: none;
+        box-shadow: inset 2px 2px 2px #555;
+    }
+
+/*Adding background color to the operator values */
+.opera-bg {
+    background: #333;
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+    border-bottom: 2px solid #555;
+}
+
+    .opera-bg:active {
+        background: #333;
+        color: #fff;
+        font-size: 13px;
+        cursor: pointer;
+        outline: none;
+        box-shadow: inset 2px 2px 2px #555;
+    }
+
+/*Adding a background color to the delete button */
+.del-bg {
+    background: #24b4de;
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+    border-bottom: 1px solid #399cb9;
+}
+
+    .del-bg:active {
+        background: #24b4de;
+        color: #fff;
+        font-size: 13px;
+        cursor: pointer;
+        outline: none;
+        box-shadow: inset 2px 2px 2px #399cb9;
+    }
+
+/*Adding a background color to the equals to button */
+#eqn-bg {
+    background: #17a928;
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+    border-bottom: 1px solid #1f7a29;
+}
+
+    #eqn-bg:active {
+        background: #17a928;
+        color: #fff;
+        font-size: 13px;
+        cursor: pointer;
+        outline: none;
+        box-shadow: inset 2px 2px 2px #1f7a29;
+    }
+
+@-webkit-keyframes bgChange {
+    0% {
+        background: #24b4de;
+    }
+
+    50% {
+        background: #17a928;
+    }
+
+    100% {
+        background: #399cb9;
+    }
+}
