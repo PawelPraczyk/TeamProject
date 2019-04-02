@@ -247,6 +247,10 @@
     <Compile Include="ViewModels\IncomeFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-HomeBudget-20190326032835.mdf" />
+    <Content Include="App_Data\aspnet-HomeBudget-20190326032835_log.ldf">
+      <DependentUpon>aspnet-HomeBudget-20190326032835.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
@@ -351,9 +355,7 @@
     <Content Include="Views\History\Outgoings.cshtml" />
     <Content Include="Views\History\Incomes.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
