@@ -18,7 +18,13 @@
     </ul>
 </div>
 
-
+<p>
+    @using (Html.BeginForm("Outgoings", "History", FormMethod.Get))
+    {
+        <input type="text" name="search" placeholder="Enter value" />
+        <input type="submit" name="submit" value="Search" />
+    }
+</p>
 <table id="outgoingstable">
     <caption>The list of previous purchases</caption>
     <tr>
