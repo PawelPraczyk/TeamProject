@@ -50,6 +50,12 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -190,8 +196,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ExpensesController.cs" />
     <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IncomesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MyDateController.cs" />
     <Compile Include="Global.asax.cs">
@@ -201,18 +209,73 @@
     <Compile Include="Migrations\201903261435460_InitialCreate.Designer.cs">
       <DependentUpon>201903261435460_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903301159179_CreateExpenseTable.cs" />
+    <Compile Include="Migrations\201903301159179_CreateExpenseTable.Designer.cs">
+      <DependentUpon>201903301159179_CreateExpenseTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903301206056_OverrideConventionsForExpenseAndCategory.cs" />
+    <Compile Include="Migrations\201903301206056_OverrideConventionsForExpenseAndCategory.Designer.cs">
+      <DependentUpon>201903301206056_OverrideConventionsForExpenseAndCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903301213007_PopulateCategoriesTable.cs" />
+    <Compile Include="Migrations\201903301213007_PopulateCategoriesTable.Designer.cs">
+      <DependentUpon>201903301213007_PopulateCategoriesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903302049534_CreateIncomeTable1.cs" />
+    <Compile Include="Migrations\201903302049534_CreateIncomeTable1.Designer.cs">
+      <DependentUpon>201903302049534_CreateIncomeTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903302056113_PopulateCategoriesIncomeTable.cs" />
+    <Compile Include="Migrations\201903302056113_PopulateCategoriesIncomeTable.Designer.cs">
+      <DependentUpon>201903302056113_PopulateCategoriesIncomeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903302057316_UpdateOperations.cs" />
+    <Compile Include="Migrations\201903302057316_UpdateOperations.Designer.cs">
+      <DependentUpon>201903302057316_UpdateOperations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904011051290_Edittable.cs" />
+    <Compile Include="Migrations\201904011051290_Edittable.Designer.cs">
+      <DependentUpon>201904011051290_Edittable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904022042027_InheritanceAdded.cs" />
+    <Compile Include="Migrations\201904022042027_InheritanceAdded.Designer.cs">
+      <DependentUpon>201904022042027_InheritanceAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904022101280_InheritanceDeleted.cs" />
+    <Compile Include="Migrations\201904022101280_InheritanceDeleted.Designer.cs">
+      <DependentUpon>201904022101280_InheritanceDeleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\CategoryIncome.cs" />
+    <Compile Include="Models\Expense.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Income.cs" />
     <Compile Include="Models\JqDate.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ExpenseFormViewModel.cs" />
+    <Compile Include="ViewModels\IncomeFormViewModel.cs" />
+    <Compile Include="Views\Account\Myprofile.aspx.cs">
+      <DependentUpon>Myprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\Myprofile.aspx.designer.cs">
+      <DependentUpon>Myprofile.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-HomeBudget-20190326032835.mdf" />
+    <Content Include="App_Data\aspnet-HomeBudget-20190326032835_log.ldf">
+      <DependentUpon>aspnet-HomeBudget-20190326032835.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\calculator.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -263,6 +326,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
+    <Content Include="Scripts\calculator.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
     <Content Include="Scripts\jquery-1.12.4.min.map" />
@@ -276,6 +340,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Views\Account\Myprofile.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -288,7 +353,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\History\HistoryPage.cshtml" />
+    <Content Include="Views\History\Balance.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -310,10 +375,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Expenses\Create.cshtml" />
+    <Content Include="Views\Incomes\CreateIncome.cshtml" />
+    <Content Include="Views\History\Outgoings.cshtml" />
+    <Content Include="Views\History\Incomes.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
@@ -329,6 +396,34 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201903261435460_InitialCreate.resx">
       <DependentUpon>201903261435460_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903301159179_CreateExpenseTable.resx">
+      <DependentUpon>201903301159179_CreateExpenseTable.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903301206056_OverrideConventionsForExpenseAndCategory.resx">
+      <DependentUpon>201903301206056_OverrideConventionsForExpenseAndCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903301213007_PopulateCategoriesTable.resx">
+      <DependentUpon>201903301213007_PopulateCategoriesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903302049534_CreateIncomeTable1.resx">
+      <DependentUpon>201903302049534_CreateIncomeTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903302056113_PopulateCategoriesIncomeTable.resx">
+      <DependentUpon>201903302056113_PopulateCategoriesIncomeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903302057316_UpdateOperations.resx">
+      <DependentUpon>201903302057316_UpdateOperations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904011051290_Edittable.resx">
+      <DependentUpon>201904011051290_Edittable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904022042027_InheritanceAdded.resx">
+      <DependentUpon>201904022042027_InheritanceAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904022101280_InheritanceDeleted.resx">
+      <DependentUpon>201904022101280_InheritanceDeleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

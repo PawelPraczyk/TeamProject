@@ -1,0 +1,103 @@
+﻿@model HomeBudget.ViewModels.IncomeFormViewModel
+@{
+    ViewBag.Title = "CreateIncome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add an income</h2>
+<head>
+    <link rel="stylesheet" href="../../Content/calculator.css">
+</head>
+@using (Html.BeginForm("CreateIncome", "Incomes"))
+{
+    //@Html.AntiForgeryToken()
+    <div class="form-group">
+        <div id="background">
+
+            <div id="result"></div>
+            <div class="form-group">
+                @*@Html.LabelFor(m => m.Price, new { id = "result" })*@
+                @Html.LabelFor(m => m.Price)
+                @Html.TextBoxFor(m => m.Price)
+                @*<label for="Price" id="Price"></label>
+        <input class="form-control"
+               id="Price"
+               name="Price"
+               type="text" />*@
+
+            </div>
+            <div id="main">
+                <div id="first-rows">
+                    <button class="del-bg" id="delete">Del</button>
+                    <button value="%" class="btn-style operator opera-bg fall-back">%</button>
+                    <button value="+" class="btn-style opera-bg value align operator">+</button>
+                </div>
+
+                <div class="rows">
+                    <button value="7" class="btn-style num-bg num first-child">7</button>
+                    <button value="8" class="btn-style num-bg num">8</button>
+                    <button value="9" class="btn-style num-bg num">9</button>
+                    <button value="-" class="btn-style opera-bg operator">-</button>
+                </div>
+
+                <div class="rows">
+                    <button value="4" class="btn-style num-bg num first-child">4</button>
+                    <button value="5" class="btn-style num-bg num">5</button>
+                    <button value="6" class="btn-style num-bg num">6</button>
+                    <button value="*" class="btn-style opera-bg operator">x</button>
+                </div>
+
+                <div class="rows">
+                    <button value="1" class="btn-style num-bg num first-child">1</button>
+                    <button value="2" class="btn-style num-bg num">2</button>
+                    <button value="3" class="btn-style num-bg num">3</button>
+                    <button value="/" class="btn-style opera-bg operator">/</button>
+                </div>
+
+                <div class="rows">
+                    <button value="0" class="num-bg zero" id="delete">0</button>
+                    <button value="." class="btn-style num-bg period fall-back">.</button>
+                    <button value="=" id="eqn-bg" class="eqn align">=</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Category)
+        @Html.DropDownListFor(m => m.Category, new SelectList(Model.CategoryIncomes, "Id", "Name", "Color"), "", new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/hot-sneaks/jquery-ui.css" rel="stylesheet" />
+    @section Scripts {
+        <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+        <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+        @Scripts.Render("~/bundles/jqueryval")
+        <script type="text/javascript" charset="utf-8" defer="defer" src="../../Scripts/calculator.js">
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#Date').datepicker().datepicker('setDate', 'today');
+            });
+
+        </script>
+    }
+
+    <div class="form-horizontal">
+        <h4>Elo robaki</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label " })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control " } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger " })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+            </div>
+        </div>
+    </div>
+}

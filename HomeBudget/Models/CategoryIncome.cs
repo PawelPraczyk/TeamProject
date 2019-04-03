@@ -6,7 +6,7 @@ using System.Web;
 
 namespace HomeBudget.Models
 {
-    public class Category
+    public class CategoryIncome
     {
         public byte Id { get; set; }
 

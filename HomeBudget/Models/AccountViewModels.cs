@@ -65,6 +65,10 @@ namespace HomeBudget.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "User name")]
+        public string UserName { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -79,6 +83,9 @@ namespace HomeBudget.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        
+    
     }
 
     public class ResetPasswordViewModel

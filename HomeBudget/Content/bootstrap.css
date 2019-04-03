@@ -26,7 +26,6 @@ aside,
 details,
 figcaption,
 figure,
-footer,
 header,
 hgroup,
 main,
@@ -34,6 +33,11 @@ nav,
 section,
 summary {
   display: block;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
 }
 
 audio,
@@ -6814,9 +6818,34 @@ td.visible-print {
     display: none !important;
   }
 }
-#historytable {
+
+.nav-history ul {
+    list-style-type: none;
+    margin: 20px 10px 20px 10px;
+    padding: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+}
+
+.nav-history li {
+    margin-bottom: 30px;
+    width: 33%;
+    float: left;
+    color: red;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+/*Dodane pawla history*/
+#outgoingstable {
     width: 100%;
     margin-top: 100px;
     margin-bottom: 20px;
     color: black;
+}
+
+#incomestable {
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    color: red;
 }

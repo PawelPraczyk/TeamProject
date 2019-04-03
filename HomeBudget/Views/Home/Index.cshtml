@@ -32,11 +32,12 @@
                 @Html.ValidationMessageFor(model => model.JoinDate, "", new { @class = "text-danger " })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="New expense" class="btn btn-success" />
-                <input type="submit" value="New income" class="btn btn-info" />
+                @*@if(Model.JoinDate!=null){
+                @Html.ActionLink("Add expense", "Create", "Expenses", new { Model.JoinDate }, new { @class = "form-control round-input", @style = " width:120px; background-color:#ff000099;color:white" })*@ 
+
+        @Html.ActionLink("Add income", "CreateIncome", "Incomes", null, new { @class = "form-control round-input", @style = " width:120px; background-color:#008000a8; color:white" })}
             </div>
         </div>
     </div>

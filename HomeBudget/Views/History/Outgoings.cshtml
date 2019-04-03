@@ -1,0 +1,53 @@
+﻿@model IPagedList<HomeBudget.Models.Expense>
+@{
+    ViewBag.Title = "Outgoings";
+}
+
+@using PagedList;
+@using PagedList.Mvc;
+
+<h2 style="margin-top: 50px;">@ViewBag.Title.</h2>
+
+<h3>@ViewBag.Message</h3>
+
+<div class="nav-history">
+    <ul>
+        <li>@Html.ActionLink("Incomes", "Incomes")</li>
+        <li>@Html.ActionLink("Balance", "Balance")</li>
+        <li>@Html.ActionLink("Outgoings", "Outgoings")</li>
+    </ul>
+</div>
+
+<p>
+    @using (Html.BeginForm("Outgoings", "History", FormMethod.Get))
+    {
+        <input type="text" name="search" placeholder="Enter value" />
+        <input type="submit" name="submit" value="Search" />
+    }
+</p>
+<table id="outgoingstable">
+    <caption>The list of previous purchases</caption>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.First().Category)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Price)</th>
+        <th>@Html.DisplayNameFor(model => model.First().User)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Date)</th>
+    </tr>
+
+
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.Category.Name)</td>
+        <td>@Html.DisplayFor(modelItem => item.Price)</td>
+        <td>@Html.DisplayFor(modelItem => item.User.UserName)</td>
+        <td>@Html.DisplayFor(itemModel => item.Date)</td>
+    </tr>
+    }
+
+
+
+</table>
+
+@Html.PagedListPager(Model, i => Url.Action("Incomes", "History", new { i, search = Request.QueryString["search"] }))
