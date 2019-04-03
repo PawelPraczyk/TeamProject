@@ -259,6 +259,13 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ExpenseFormViewModel.cs" />
     <Compile Include="ViewModels\IncomeFormViewModel.cs" />
+    <Compile Include="Views\Account\Myprofile.aspx.cs">
+      <DependentUpon>Myprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Account\Myprofile.aspx.designer.cs">
+      <DependentUpon>Myprofile.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\aspnet-HomeBudget-20190326032835.mdf" />
@@ -333,6 +340,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Views\Account\Myprofile.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

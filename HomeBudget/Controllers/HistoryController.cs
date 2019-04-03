@@ -19,12 +19,16 @@ namespace HomeBudget.Controllers
             _context = new ApplicationDbContext();
         }
 
+        [Authorize]
         public ActionResult Balance()
+
         {
             ViewBag.Message = "This is your balance.";
 
             return View();
         }
+
+        [Authorize]
         public ActionResult Incomes(string search, int? i)
         {
             var incomesHistory = _context.Incomes
@@ -33,6 +37,8 @@ namespace HomeBudget.Controllers
 
             return View(incomesHistory);
         }
+
+        [Authorize]
         public ActionResult Outgoings(string search, int? i)
         {
             var expensesHistory = _context.Expenses
