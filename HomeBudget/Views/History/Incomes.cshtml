@@ -33,6 +33,7 @@
         <th>@Html.DisplayNameFor(model => model.First().CategoryIncome)</th>
         <th>@Html.DisplayNameFor(model => model.First().Price)</th>
         <th>@Html.DisplayNameFor(model => model.First().User)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Date)</th>
     </tr>
 
     @foreach (var item in Model)
@@ -41,6 +42,7 @@
             <td>@Html.DisplayFor(itemModel => item.CategoryIncome.Name)</td>
             <td>@Html.DisplayFor(itemModel => item.Price)</td>
             <td>@Html.DisplayFor(itemModel => item.User.UserName)</td>
+            <td>@Html.DisplayFor(itemModel => item.Date)</td>
         </tr>
     }
 

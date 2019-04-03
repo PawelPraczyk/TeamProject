@@ -31,17 +31,19 @@
         <th>@Html.DisplayNameFor(model => model.First().Category)</th>
         <th>@Html.DisplayNameFor(model => model.First().Price)</th>
         <th>@Html.DisplayNameFor(model => model.First().User)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Date)</th>
     </tr>
 
 
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.Category.Name)</td>
-            <td>@Html.DisplayFor(modelItem => item.Price)</td>
-            <td>@Html.DisplayFor(modelItem => item.User.UserName)</td>
-        </tr>
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.Category.Name)</td>
+        <td>@Html.DisplayFor(modelItem => item.Price)</td>
+        <td>@Html.DisplayFor(modelItem => item.User.UserName)</td>
+        <td>@Html.DisplayFor(itemModel => item.Date)</td>
+    </tr>
     }
 
 

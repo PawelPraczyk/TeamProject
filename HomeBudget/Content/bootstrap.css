@@ -26,7 +26,6 @@ aside,
 details,
 figcaption,
 figure,
-footer,
 header,
 hgroup,
 main,
@@ -34,6 +33,11 @@ nav,
 section,
 summary {
   display: block;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
 }
 
 audio,
