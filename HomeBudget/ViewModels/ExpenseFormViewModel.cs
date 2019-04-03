@@ -6,10 +6,11 @@ using System.Web;
 
 namespace HomeBudget.ViewModels
 {
-    public class ExpenseFormViewModel
+    public class ExpenseFormViewModel : JqDate
     {
         public decimal Price { get; set; }
         public int Category { get; set; }
         public IEnumerable<Category> Categories { get; set; }
+        public DateTime Date { get; set; }
     }
 }
