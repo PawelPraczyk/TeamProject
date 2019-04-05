@@ -8,7 +8,7 @@
         period,
         operator;
 
-    screen = document.getElementById("Price");
+    screen = document.getElementById("result");
 
     var elem = document.querySelectorAll(".num");
 
@@ -77,7 +77,7 @@
             screen.innerHTML = eval(output);
 
             output = screen.innerHTML;
-
+            document.getElementById('Price').value = output;
         }
 
         else {
