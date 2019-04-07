@@ -32,8 +32,8 @@
     <tr>
         <th>@Html.ActionLink("Category", "Incomes", new { sortOrder = ViewBag.NameSortParm })</th>
         <th>@Html.ActionLink("Price", "Incomes", new { sortOrder = ViewBag.PriceSortParm })</th>
-        <th>@Html.DisplayNameFor(model => model.First().User)</th>
-        <th>@Html.DisplayNameFor(model => model.First().Date)</th>
+        <th>@Html.ActionLink("User", "Incomes", new { sortOrder = ViewBag.UserSortParm })</th>
+        <th>@Html.ActionLink("Date", "Incomes", new { sortOrder = ViewBag.DateSortParm })</th>
     </tr>
 
     @foreach (var item in Model)

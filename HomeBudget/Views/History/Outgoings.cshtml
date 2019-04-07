@@ -28,10 +28,10 @@
 <table id="outgoingstable">
     <caption>The list of previous purchases</caption>
     <tr>
-        <th>@Html.DisplayNameFor(model => model.First().Category)</th>
-        <th>@Html.DisplayNameFor(model => model.First().Price)</th>
-        <th>@Html.DisplayNameFor(model => model.First().User)</th>
-        <th>@Html.DisplayNameFor(model => model.First().Date)</th>
+        <th>@Html.ActionLink("Category", "Outgoings", new { sortOrder = ViewBag.NameSortParm })</th>
+        <th>@Html.ActionLink("Price", "Outgoings", new { sortOrder = ViewBag.PriceSortParm })</th>
+        <th>@Html.ActionLink("User", "Outgoings", new { sortOrder = ViewBag.UserSortParm })</th>
+        <th>@Html.ActionLink("Date", "Outgoings", new { sortOrder = ViewBag.DateSortParm })</th>
     </tr>
 
 
