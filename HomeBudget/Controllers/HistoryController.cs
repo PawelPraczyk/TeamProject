@@ -29,11 +29,25 @@ namespace HomeBudget.Controllers
         }
 
         [Authorize]
-        public ActionResult Incomes(string search, int? i)
+        public ActionResult Incomes(string sortOrder, string search, int? i)
         {
+            ViewBag.NamesortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
+
             var incomesHistory = _context.Incomes
                 .Include(g => g.CategoryIncome)
                 .Include(g => g.User).Where(x => x.CategoryIncome.Name.StartsWith(search) || search == null).ToList().ToPagedList(i ?? 1,10);
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    incomesHistory = incomesHistory.OrderBy(g => g.CategoryIncome.Name).ToList().ToPagedList(i ?? 1,10);
+                    break;
+                case "price_desc":
+                    incomesHistory = incomesHistory.OrderBy(g => g.Price).ToList().ToPagedList(i ?? 1, 10);
+                    break;
+            }
 
             return View(incomesHistory);
         }
