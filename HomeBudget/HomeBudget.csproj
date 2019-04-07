@@ -274,6 +274,10 @@
     <Compile Include="Migrations\201904052311185_thelastone.Designer.cs">
       <DependentUpon>201904052311185_thelastone.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904061055275_UserPhoto.cs" />
+    <Compile Include="Migrations\201904061055275_UserPhoto.Designer.cs">
+      <DependentUpon>201904061055275_UserPhoto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -468,6 +472,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904052311185_thelastone.resx">
       <DependentUpon>201904052311185_thelastone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904061055275_UserPhoto.resx">
+      <DependentUpon>201904061055275_UserPhoto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
