@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using HomeBudget.Models;
 using PagedList;
 using PagedList.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace HomeBudget.Controllers
 {
@@ -23,7 +24,22 @@ namespace HomeBudget.Controllers
         public ActionResult Balance()
 
         {
-            ViewBag.Message = "This is your balance.";
+            var userId = User.Identity.GetUserId();
+            var user = _context.Users.Single(u => u.Id == userId);
+            var incomesHistory = _context.Incomes;
+            var expensesHistory = _context.Expenses;
+            var historyBalance = incomesHistory.AsEnumerable().Where(g => g.User == user).Sum(s => s.Price);
+            var expensesBalance = expensesHistory.AsEnumerable().Where(g => g.User == user).Sum(s => s.Price);
+
+            Balance balance = new Balance
+            {
+                IncomesSum = historyBalance,
+                ExpensesSum = expensesBalance,
+                UserBalance = (historyBalance - expensesBalance)
+            };
+
+
+            ViewBag.Message = balance;
 
             return View();
         }
