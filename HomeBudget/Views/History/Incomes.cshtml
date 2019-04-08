@@ -30,10 +30,10 @@
 <table id="incomestable">
     <caption>The list of previous incomes</caption>
     <tr>
-        <th>@Html.DisplayNameFor(model => model.First().CategoryIncome)</th>
-        <th>@Html.DisplayNameFor(model => model.First().Price)</th>
-        <th>@Html.DisplayNameFor(model => model.First().User)</th>
-        <th>@Html.DisplayNameFor(model => model.First().Date)</th>
+        <th>@Html.ActionLink("Category", "Incomes", new { sortOrder = ViewBag.NameSortParm })</th>
+        <th>@Html.ActionLink("Price", "Incomes", new { sortOrder = ViewBag.PriceSortParm })</th>
+        <th>@Html.ActionLink("User", "Incomes", new { sortOrder = ViewBag.UserSortParm })</th>
+        <th>@Html.ActionLink("Date", "Incomes", new { sortOrder = ViewBag.DateSortParm })</th>
     </tr>
 
     @foreach (var item in Model)

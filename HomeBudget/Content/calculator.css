@@ -1,11 +1,12 @@
 ﻿body {
-    background: #777;
+    background: white;
 }
 
 #background {
+    border-radius: 5px;
     width: 150px;
-    height: 170px;
-    background: gray;
+    height: 220px;
+    background: #a19e9e;
     margin: 25px auto;
 }
 
@@ -164,14 +165,14 @@ button {
 
 @-webkit-keyframes bgChange {
     0% {
-        background: #24b4de;
+        background: #555;
     }
 
     50% {
-        background: #17a928;
+        background: #555;
     }
 
     100% {
-        background: #399cb9;
+        background: #555;
     }
 }
