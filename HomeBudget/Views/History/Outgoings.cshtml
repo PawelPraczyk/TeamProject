@@ -50,4 +50,4 @@
 
 </table>
 
-@Html.PagedListPager(Model, i => Url.Action("Incomes", "History", new { i, search = Request.QueryString["search"] }))
+@Html.PagedListPager(Model, i => Url.Action("Outgoings", "History", new { i, search = Request.QueryString["search"] }))
