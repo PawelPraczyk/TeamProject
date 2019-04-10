@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
+
 namespace HomeBudget.Models
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

@@ -85,7 +85,9 @@ namespace HomeBudget.Models
         public string ConfirmPassword { get; set; }
 
         
-    
+        [Display(Name = "UserPhoto")]
+        public byte[] UserPhoto { get; set; }
+
     }
 
     public class ResetPasswordViewModel

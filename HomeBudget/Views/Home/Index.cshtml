@@ -3,7 +3,16 @@
 @{
     ViewBag.Title = "Index";
 }
+<h1>
+    Profile Image ..
 
+    <img src="@Url.Action("UserPhotos", "Home" )" style="width:160px;height:160px; background: #FFFFFF;
+    margin: auto;
+    -moz-border-radius: 60px;
+    border-radius: 100px;
+    padding: 6px;
+    box-shadow: 0px 0px 20px #888;" />
+</h1>
 <h2>Index</h2>
 <link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/hot-sneaks/jquery-ui.css" rel="stylesheet" />
 @section Scripts {

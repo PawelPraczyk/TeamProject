@@ -21,6 +21,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li>
+                        <img src="@Url.Action("UserPhotos", "Home" )" height="48" width="48" />
+
+                    </li>
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Add expense", "Create", "Expenses")</li>
                     <li>@Html.ActionLink("Add income", "CreateIncome", "Incomes")</li>
