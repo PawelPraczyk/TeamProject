@@ -254,9 +254,9 @@
     <Compile Include="Migrations\201904022101280_InheritanceDeleted.Designer.cs">
       <DependentUpon>201904022101280_InheritanceDeleted.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201904052249091_firstone.cs" />
-    <Compile Include="Migrations\201904052249091_firstone.Designer.cs">
-      <DependentUpon>201904052249091_firstone.cs</DependentUpon>
+    <Compile Include="Migrations\201904101218252_Addphoto.cs" />
+    <Compile Include="Migrations\201904101218252_Addphoto.Designer.cs">
+      <DependentUpon>201904101218252_Addphoto.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -438,8 +438,8 @@
     <EmbeddedResource Include="Migrations\201904022101280_InheritanceDeleted.resx">
       <DependentUpon>201904022101280_InheritanceDeleted.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904052249091_firstone.resx">
-      <DependentUpon>201904052249091_firstone.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904101218252_Addphoto.resx">
+      <DependentUpon>201904101218252_Addphoto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

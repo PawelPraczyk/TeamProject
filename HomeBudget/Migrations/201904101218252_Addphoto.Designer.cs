@@ -7,13 +7,13 @@ namespace HomeBudget.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class firstone : IMigrationMetadata
+    public sealed partial class Addphoto : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(firstone));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Addphoto));
         
         string IMigrationMetadata.Id
         {
-            get { return "201904052249091_firstone"; }
+            get { return "201904101218252_Addphoto"; }
         }
         
         string IMigrationMetadata.Source
