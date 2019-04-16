@@ -211,6 +211,7 @@
     <Compile Include="Controllers\IncomesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MyDateController.cs" />
+    <Compile Include="Controllers\NotificationsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -258,6 +259,10 @@
     <Compile Include="Migrations\201904101218252_Addphoto.Designer.cs">
       <DependentUpon>201904101218252_Addphoto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904161247192_FixedExpense.cs" />
+    <Compile Include="Migrations\201904161247192_FixedExpense.Designer.cs">
+      <DependentUpon>201904161247192_FixedExpense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -265,6 +270,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CategoryIncome.cs" />
     <Compile Include="Models\Expense.cs" />
+    <Compile Include="Models\FixedExpense.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Income.cs" />
     <Compile Include="Models\JqDate.cs" />
@@ -272,6 +278,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ExpenseFormViewModel.cs" />
+    <Compile Include="ViewModels\FixedExpenseViewModel.cs" />
     <Compile Include="ViewModels\IncomeFormViewModel.cs" />
     <Compile Include="Views\Account\Myprofile.aspx.cs">
       <DependentUpon>Myprofile.aspx</DependentUpon>
@@ -393,8 +400,11 @@
     <Content Include="Views\Incomes\CreateIncome.cshtml" />
     <Content Include="Views\History\Outgoings.cshtml" />
     <Content Include="Views\History\Incomes.cshtml" />
+    <Content Include="Views\Expenses\FixedExpense.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Notifications\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
@@ -441,6 +451,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904101218252_Addphoto.resx">
       <DependentUpon>201904101218252_Addphoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904161247192_FixedExpense.resx">
+      <DependentUpon>201904161247192_FixedExpense.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -2,7 +2,6 @@
 using HomeBudget.ViewModels;
 using Microsoft.AspNet.Identity;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -44,6 +43,38 @@ namespace HomeBudget.Controllers
                 Date = viewModel.Date               
             };
             _context.Expenses.Add(expense);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [Authorize]
+        public ActionResult FixedExpense()
+        {
+            var viewModel = new FixedExpenseViewModel
+            {
+                Categories = _context.Categories.ToList(),
+            };
+            return View(viewModel);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult FixedExpense(FixedExpenseViewModel viewModel)
+        {
+            var userId = User.Identity.GetUserId();
+            var user = _context.Users.Single(u => u.Id == userId);
+            var category = _context.Categories.Single(u => u.Id == viewModel.Category);
+
+            var fixedExpense = new FixedExpense
+            {
+                User = user,
+                Category = category,
+                Date = viewModel.Date,
+                Price = viewModel.Price,
+                Name = viewModel.Name
+            };
+            _context.FixedExpenses.Add(fixedExpense);
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Home");
