@@ -9,7 +9,7 @@ namespace HomeBudget.Controllers
     public class NotificationsController : Controller
     {
         // GET: Notifications
-        public ActionResult Index()
+        public ActionResult ListOfNotifications()
         {
             return View();
         }

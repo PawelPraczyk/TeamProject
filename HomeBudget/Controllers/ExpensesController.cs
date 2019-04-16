@@ -40,7 +40,7 @@ namespace HomeBudget.Controllers
                 User = user,
                 Price = viewModel.Price,
                 Category = category,
-                Date = viewModel.Date               
+                Date = viewModel.GetDataTime()            
             };
             _context.Expenses.Add(expense);
             _context.SaveChanges();
@@ -70,7 +70,7 @@ namespace HomeBudget.Controllers
             {
                 User = user,
                 Category = category,
-                Date = viewModel.Date,
+                Date = viewModel.GetDataTime(),
                 Price = viewModel.Price,
                 Name = viewModel.Name
             };

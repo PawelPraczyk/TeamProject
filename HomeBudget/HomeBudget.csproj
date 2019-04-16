@@ -401,10 +401,10 @@
     <Content Include="Views\History\Outgoings.cshtml" />
     <Content Include="Views\History\Incomes.cshtml" />
     <Content Include="Views\Expenses\FixedExpense.cshtml" />
+    <Content Include="Views\Shared\Layouts\_Notifications.cshtml" />
+    <Content Include="Views\Notifications\ListOfNotifications.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Notifications\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>

@@ -15,41 +15,41 @@
         <div id="background">
             <div class="form-group" style="margin-bottom: 0px; margin-left:50px">
                 @Html.LabelFor(m => m.Price)
-                @Html.Hidden("Price", Model.Price, new { @style="height:5px"})
+                @Html.Hidden("Price", Model.Price, new { @style = "height:5px" })
             </div>
             <div id="result"></div>
             <div id="main">
                 <div id="first-rows">
-                    <button class="del-bg" id="delete">Del</button>
-                    <button value="%" class="btn-style operator opera-bg fall-back">%</button>
-                    <button value="+" class="btn-style opera-bg value align operator">+</button>
+                    <button type="button" class="del-bg" id="delete">Del</button>
+                    <button type="button" value="%" class="btn-style operator opera-bg fall-back">%</button>
+                    <button type="button" value="+" class="btn-style opera-bg value align operator">+</button>
                 </div>
 
                 <div class="rows">
-                    <button value="7" class="btn-style num-bg num first-child">7</button>
-                    <button value="8" class="btn-style num-bg num">8</button>
-                    <button value="9" class="btn-style num-bg num">9</button>
-                    <button value="-" class="btn-style opera-bg operator">-</button>
+                    <button type="button" value="7" class="btn-style num-bg num first-child">7</button>
+                    <button type="button" value="8" class="btn-style num-bg num">8</button>
+                    <button type="button" value="9" class="btn-style num-bg num">9</button>
+                    <button type="button" value="-" class="btn-style opera-bg operator">-</button>
                 </div>
 
                 <div class="rows">
-                    <button value="4" class="btn-style num-bg num first-child">4</button>
-                    <button value="5" class="btn-style num-bg num">5</button>
-                    <button value="6" class="btn-style num-bg num">6</button>
-                    <button value="*" class="btn-style opera-bg operator">x</button>
+                    <button type="button" value="4" class="btn-style num-bg num first-child">4</button>
+                    <button type="button" value="5" class="btn-style num-bg num">5</button>
+                    <button type="button" value="6" class="btn-style num-bg num">6</button>
+                    <button type="button" value="*" class="btn-style opera-bg operator">x</button>
                 </div>
 
                 <div class="rows">
-                    <button value="1" class="btn-style num-bg num first-child">1</button>
-                    <button value="2" class="btn-style num-bg num">2</button>
-                    <button value="3" class="btn-style num-bg num">3</button>
-                    <button value="/" class="btn-style opera-bg operator">/</button>
+                    <button type="button" value="1" class="btn-style num-bg num first-child">1</button>
+                    <button type="button" value="2" class="btn-style num-bg num">2</button>
+                    <button type="button" value="3" class="btn-style num-bg num">3</button>
+                    <button type="button" value="/" class="btn-style opera-bg operator">/</button>
                 </div>
 
                 <div class="rows">
-                    <button value="0" class="num-bg zero" id="delete">0</button>
-                    <button value="." class="btn-style num-bg period fall-back">.</button>
-                    <button value="=" id="eqn-bg" class="eqn align">=</button>
+                    <button type="button" value="0" class="num-bg zero" id="delete">0</button>
+                    <button type="button" value="." class="btn-style num-bg period fall-back">.</button>
+                    <button type="button" value="=" id="eqn-bg" class="eqn align">=</button>
                 </div>
             </div>
         </div>
@@ -58,18 +58,23 @@
         @Html.LabelFor(m => m.Category)
         @Html.DropDownListFor(m => m.Category, new SelectList(Model.Categories, "Id", "Name", "Color"), "", new { @class = "form-control" })
     </div>
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group" style="width:200px; margin-left:470px">
-            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label " })
-            <div>
-                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control " } })
-                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger " })
-            </div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group" style="width:200px; margin-left:470px">
+        @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label " })
+        <div>
+            @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control " } })
+            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger " })
         </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-            </div>
+    </div>
+    <div class="form-group" style="width:200px; margin-left:470px">
+        @Html.LabelFor(m => m.Time)
+        @Html.TextBoxFor(m => m.Time, new { @class = "form-control", placeholder = "eg 20:00" })
+        @Html.ValidationMessageFor(m => m.Time)
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
         </div>
+    </div>
     <button type="submit" class="btn btn-primary" style="width:200px; margin-left:470px">Save</button>
     <link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/hot-sneaks/jquery-ui.css" rel="stylesheet" />
     @section Scripts {
