@@ -239,6 +239,10 @@
     <Compile Include="Migrations\201904022101280_InheritanceDeleted.Designer.cs">
       <DependentUpon>201904022101280_InheritanceDeleted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904181221376_sth.cs" />
+    <Compile Include="Migrations\201904181221376_sth.Designer.cs">
+      <DependentUpon>201904181221376_sth.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -409,6 +413,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904022101280_InheritanceDeleted.resx">
       <DependentUpon>201904022101280_InheritanceDeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904181221376_sth.resx">
+      <DependentUpon>201904181221376_sth.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
