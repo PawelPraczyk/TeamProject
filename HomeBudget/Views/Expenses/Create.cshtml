@@ -57,6 +57,7 @@
     <div class="form-group" style="width:200px; margin-left:470px">
         @Html.LabelFor(m => m.Category)
         @Html.DropDownListFor(m => m.Category, new SelectList(Model.Categories, "Id", "Name", "Color"), "", new { @class = "form-control" })
+        <h1>Hello world!</h1>
     </div>
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group" style="width:200px; margin-left:470px">

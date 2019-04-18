@@ -170,7 +170,7 @@ namespace HomeBudget.Controllers
 
                 //Here we pass the byte array to user context to store in db
                 user.UserPhoto = imageData;
-
+                user.SavingsAmount = 200.0m;
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

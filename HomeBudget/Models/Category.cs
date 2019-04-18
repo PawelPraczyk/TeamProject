@@ -16,5 +16,7 @@ namespace HomeBudget.Models
         [Required]
         public string Color { get; set; }
         //public Image Icon { get; set; }
+        public decimal AvailableMoney { get; set; }
+        public decimal SpendMoney { get; set; }
     }
 }

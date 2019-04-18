@@ -44,6 +44,9 @@ namespace HomeBudget.Controllers
             };
             _context.Expenses.Add(expense);
             _context.SaveChanges();
+            _context.Categories.Find(viewModel.Category).AvailableMoney-=viewModel.Price;
+            _context.Categories.Find(viewModel.Category).SpendMoney += viewModel.Price;
+            _context.SaveChanges();
 
             return RedirectToAction("Index", "Home");
         }

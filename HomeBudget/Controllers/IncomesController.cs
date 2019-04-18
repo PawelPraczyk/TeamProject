@@ -45,6 +45,15 @@ namespace HomeBudget.Controllers
             };
             _context.Incomes.Add(income);
             _context.SaveChanges();
+            var incomesHistory = _context.Incomes;
+            var IncomesSum = incomesHistory.AsEnumerable().Where(g => g.User == user).Sum(s => s.Price);
+            var SavingsAmount = user.SavingsAmount;
+            _context.Categories.Find(1).AvailableMoney = (IncomesSum - SavingsAmount) * 0.4m - _context.Categories.Find(1).SpendMoney;
+            _context.Categories.Find(2).AvailableMoney = (IncomesSum - SavingsAmount) * 0.2m - _context.Categories.Find(2).SpendMoney;
+            _context.Categories.Find(3).AvailableMoney = (IncomesSum - SavingsAmount) * 0.06m - _context.Categories.Find(3).SpendMoney;
+            _context.Categories.Find(4).AvailableMoney = (IncomesSum - SavingsAmount) * 0.03m - _context.Categories.Find(4).SpendMoney;
+            _context.Categories.Find(5).AvailableMoney = (IncomesSum - SavingsAmount) * 0.05m - _context.Categories.Find(5).SpendMoney;
+            _context.SaveChanges();
 
             return RedirectToAction("Index", "Home");
         }

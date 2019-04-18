@@ -205,6 +205,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ExpensesController.cs" />
     <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -212,6 +213,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MyDateController.cs" />
     <Compile Include="Controllers\NotificationsController.cs" />
+    <Compile Include="Controllers\SavingsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -255,13 +257,17 @@
     <Compile Include="Migrations\201904022101280_InheritanceDeleted.Designer.cs">
       <DependentUpon>201904022101280_InheritanceDeleted.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201904101218252_Addphoto.cs" />
-    <Compile Include="Migrations\201904101218252_Addphoto.Designer.cs">
-      <DependentUpon>201904101218252_Addphoto.cs</DependentUpon>
+    <Compile Include="Migrations\201904181229551_sth.cs" />
+    <Compile Include="Migrations\201904181229551_sth.Designer.cs">
+      <DependentUpon>201904181229551_sth.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201904161247192_FixedExpense.cs" />
-    <Compile Include="Migrations\201904161247192_FixedExpense.Designer.cs">
-      <DependentUpon>201904161247192_FixedExpense.cs</DependentUpon>
+    <Compile Include="Migrations\201904181240301_savingsAdded.cs" />
+    <Compile Include="Migrations\201904181240301_savingsAdded.Designer.cs">
+      <DependentUpon>201904181240301_savingsAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904181549238_addspending.cs" />
+    <Compile Include="Migrations\201904181549238_addspending.Designer.cs">
+      <DependentUpon>201904181549238_addspending.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -403,8 +409,11 @@
     <Content Include="Views\Expenses\FixedExpense.cshtml" />
     <Content Include="Views\Shared\Layouts\_Notifications.cshtml" />
     <Content Include="Views\Notifications\ListOfNotifications.cshtml" />
+    <Content Include="Views\Savings\ChangeSavings.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Category\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
@@ -449,11 +458,14 @@
     <EmbeddedResource Include="Migrations\201904022101280_InheritanceDeleted.resx">
       <DependentUpon>201904022101280_InheritanceDeleted.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904101218252_Addphoto.resx">
-      <DependentUpon>201904101218252_Addphoto.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904181229551_sth.resx">
+      <DependentUpon>201904181229551_sth.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904161247192_FixedExpense.resx">
-      <DependentUpon>201904161247192_FixedExpense.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904181240301_savingsAdded.resx">
+      <DependentUpon>201904181240301_savingsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904181549238_addspending.resx">
+      <DependentUpon>201904181549238_addspending.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

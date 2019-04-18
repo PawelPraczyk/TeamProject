@@ -30,7 +30,6 @@ namespace HomeBudget.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 String userId = User.Identity.GetUserId();
-
                 if (userId == null)
                 {
                     string fileName = HttpContext.Server.MapPath(@"~/Images/noImg.png");
@@ -48,7 +47,7 @@ namespace HomeBudget.Controllers
                 // to get the user details to load user Image
                 var bdUsers = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
                 var userImage = bdUsers.Users.Where(x => x.Id == userId).FirstOrDefault();
-
+                userImage.SavingsAmount = 200.0m;
                 return new FileContentResult(userImage.UserPhoto, "image/jpeg");
             }
             else
