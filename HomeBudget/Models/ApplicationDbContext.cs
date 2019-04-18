@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
+
 namespace HomeBudget.Models
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -9,6 +10,7 @@ namespace HomeBudget.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<Income> Incomes { get; set; }
         public DbSet<CategoryIncome> CategoryIncomes { get; set; }
+        public DbSet<FixedExpense> FixedExpenses { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

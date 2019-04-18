@@ -1,15 +1,17 @@
-﻿@model HomeBudget.ViewModels.IncomeFormViewModel
+﻿@model HomeBudget.ViewModels.FixedExpenseViewModel
 @{
-    ViewBag.Title = "CreateIncome";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    /**/
+
+    ViewBag.Title = "FixedExpense";
 }
 
-<h2>Add an income</h2>
+<h2>Add a expenseee</h2>
 <head>
     <link rel="stylesheet" href="../../Content/calculator.css">
 </head>
-@using (Html.BeginForm("CreateIncome", "Incomes"))
+@using (Html.BeginForm("FixedExpense", "Expenses"))
 {
+
     //@Html.AntiForgeryToken()
     <div class="form-group">
         <div id="background">
@@ -52,18 +54,23 @@
                     <button type="button" value="=" id="eqn-bg" class="eqn align">=</button>
                 </div>
             </div>
-
         </div>
+    </div>
 
+
+
+    <div class="form-group" style="width:200px; margin-left:470px;">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
     </div>
     <div class="form-group" style="width:200px; margin-left:470px">
         @Html.LabelFor(m => m.Category)
-        @Html.DropDownListFor(m => m.Category, new SelectList(Model.CategoryIncomes, "Id", "Name", "Color"), "", new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.Category, new SelectList(Model.Categories, "Id", "Name", "Color"), "", new { @class = "form-control" })
     </div>
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
+    <div class="form-group" style="width:200px; margin-left:470px">
         @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label " })
-        <div class="col-md-10">
+        <div>
             @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control " } })
             @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger " })
         </div>
@@ -89,8 +96,7 @@
             $(document).ready(function () {
                 $('#Date').datepicker().datepicker('setDate', 'today');
             });
-
         </script>
     }
-
 }
+

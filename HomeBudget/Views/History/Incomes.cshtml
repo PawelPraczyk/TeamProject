@@ -1,11 +1,16 @@
-﻿@model IEnumerable<HomeBudget.Models.Income> 
+﻿@model IPagedList<HomeBudget.Models.Income>
 @{
     ViewBag.Title = "Incomes";
 }
 
+@using PagedList;
+@using PagedList.Mvc;
+
+
 <h2 style="margin-top: 50px;">@ViewBag.Title.</h2>
 
 <h3>@ViewBag.Message</h3>
+
 
 <div class="nav-history">
     <ul>
@@ -15,12 +20,20 @@
     </ul>
 </div>
 
+<p>
+    @using (Html.BeginForm("Incomes", "History", FormMethod.Get))
+    {
+        <input type="text" name="search" placeholder="Enter value" />
+        <input type="submit" name="submit" value="Search" />
+    }
+</p>
 <table id="incomestable">
     <caption>The list of previous incomes</caption>
     <tr>
-        <th>@Html.DisplayNameFor(model => model.CategoryIncome)</th>
-        <th>@Html.DisplayNameFor(model => model.Price)</th>
-        <th>@Html.DisplayNameFor(model => model.User)</th>
+        <th>@Html.ActionLink("Category", "Incomes", new { sortOrder = ViewBag.NameSortParm })</th>
+        <th>@Html.ActionLink("Price", "Incomes", new { sortOrder = ViewBag.PriceSortParm })</th>
+        <th>@Html.ActionLink("User", "Incomes", new { sortOrder = ViewBag.UserSortParm })</th>
+        <th>@Html.ActionLink("Date", "Incomes", new { sortOrder = ViewBag.DateSortParm })</th>
     </tr>
 
     @foreach (var item in Model)
@@ -29,7 +42,10 @@
             <td>@Html.DisplayFor(itemModel => item.CategoryIncome.Name)</td>
             <td>@Html.DisplayFor(itemModel => item.Price)</td>
             <td>@Html.DisplayFor(itemModel => item.User.UserName)</td>
+            <td>@Html.DisplayFor(itemModel => item.Date)</td>
         </tr>
     }
 
 </table>
+
+@Html.PagedListPager(Model, i => Url.Action("Incomes", "History", new { i, search = Request.QueryString["search"]}))

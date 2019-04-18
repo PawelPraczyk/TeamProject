@@ -41,7 +41,7 @@ namespace HomeBudget.Controllers
                 User = user,
                 Price = viewModel.Price,
                 CategoryIncome = category,
-                Date = viewModel.Date
+                Date = viewModel.GetDataTime()
             };
             _context.Incomes.Add(income);
             _context.SaveChanges();
