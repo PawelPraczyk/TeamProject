@@ -257,10 +257,6 @@
     <Compile Include="Migrations\201904022101280_InheritanceDeleted.Designer.cs">
       <DependentUpon>201904022101280_InheritanceDeleted.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201904181229551_sth.cs" />
-    <Compile Include="Migrations\201904181229551_sth.Designer.cs">
-      <DependentUpon>201904181229551_sth.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201904181240301_savingsAdded.cs" />
     <Compile Include="Migrations\201904181240301_savingsAdded.Designer.cs">
       <DependentUpon>201904181240301_savingsAdded.cs</DependentUpon>
@@ -457,9 +453,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904022101280_InheritanceDeleted.resx">
       <DependentUpon>201904022101280_InheritanceDeleted.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904181229551_sth.resx">
-      <DependentUpon>201904181229551_sth.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904181240301_savingsAdded.resx">
       <DependentUpon>201904181240301_savingsAdded.cs</DependentUpon>
