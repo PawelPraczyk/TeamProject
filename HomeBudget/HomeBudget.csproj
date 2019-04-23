@@ -257,6 +257,18 @@
     <Compile Include="Migrations\201904022101280_InheritanceDeleted.Designer.cs">
       <DependentUpon>201904022101280_InheritanceDeleted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904101218252_Addphoto.cs" />
+    <Compile Include="Migrations\201904101218252_Addphoto.Designer.cs">
+      <DependentUpon>201904101218252_Addphoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904161247192_FixedExpense.cs" />
+    <Compile Include="Migrations\201904161247192_FixedExpense.Designer.cs">
+      <DependentUpon>201904161247192_FixedExpense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904181221376_sth.cs" />
+    <Compile Include="Migrations\201904181221376_sth.Designer.cs">
+      <DependentUpon>201904181221376_sth.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201904181240301_savingsAdded.cs" />
     <Compile Include="Migrations\201904181240301_savingsAdded.Designer.cs">
       <DependentUpon>201904181240301_savingsAdded.cs</DependentUpon>
@@ -453,6 +465,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904022101280_InheritanceDeleted.resx">
       <DependentUpon>201904022101280_InheritanceDeleted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904101218252_Addphoto.resx">
+      <DependentUpon>201904101218252_Addphoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904161247192_FixedExpense.resx">
+      <DependentUpon>201904161247192_FixedExpense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904181221376_sth.resx">
+      <DependentUpon>201904181221376_sth.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904181240301_savingsAdded.resx">
       <DependentUpon>201904181240301_savingsAdded.cs</DependentUpon>

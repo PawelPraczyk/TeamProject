@@ -11,7 +11,6 @@ namespace HomeBudget.Migrations
             DropForeignKey("dbo.FixedExpenses", "User_Id", "dbo.AspNetUsers");
             DropIndex("dbo.FixedExpenses", new[] { "CategoryId" });
             DropIndex("dbo.FixedExpenses", new[] { "User_Id" });
-            DropColumn("dbo.AspNetUsers", "UserPhoto");
             DropTable("dbo.FixedExpenses");
         }
         
@@ -30,7 +29,6 @@ namespace HomeBudget.Migrations
                     })
                 .PrimaryKey(t => t.Id);
             
-            AddColumn("dbo.AspNetUsers", "UserPhoto", c => c.Binary());
             CreateIndex("dbo.FixedExpenses", "User_Id");
             CreateIndex("dbo.FixedExpenses", "CategoryId");
             AddForeignKey("dbo.FixedExpenses", "User_Id", "dbo.AspNetUsers", "Id");
