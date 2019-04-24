@@ -1,4 +1,4 @@
-/* NUGET: BEGIN LICENSE TEXT
+/*/* NUGET: BEGIN LICENSE TEXT
  *
  * Microsoft grants you the right to use these script files for the sole
  * purpose of either: (i) interacting through your browser with the Microsoft
@@ -20,10 +20,151 @@
  */
 
 /*! normalize.css v2.1.0 | MIT License | git.io/normalize */
-#container{
-    position:relative;
-    top:34px;
+
+/*JANKOWANIE
+    POCZ¥TEK
+*/
+
+
+/*REJESTRACJA*/
+
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
 }
+.custom-file-input {
+    position: relative;
+    left: 300px;
+    content: 'Select some files';
+    display: inline-block;
+    background: red;
+    border: 1px solid #999;
+    border-radius: 50px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+  
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+}
+
+
+.regButton {
+    position: relative;
+    top: 50px;
+    width: 600px;
+    color: white;
+    border: 3px solid white;
+    border-radius: 50px;
+    text-align: center;
+    background: none;
+}
+    .regButton:hover {
+        border-color: #F4A73B;
+        color: #F4A73B;
+    }
+.regGroup {
+    display: flex;
+    margin: 10px;
+    
+}
+.regGroupName {
+    color:black;
+    width: 150px;
+    
+}
+.regGroupForm {
+    border: 2px solid white;
+    border-radius: 50px;
+    text-align: center;
+    background: none;
+    width: 600px;
+    color: white;
+}
+/*LOGOWANIE*/
+.userPhotoLOGIN {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-image: url("https://img.icons8.com/ios/50/000000/user-male-circle.png");
+}
+#jloginForm {
+    position: relative;
+    top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#jlink {
+    top: 40px;
+    position: relative;
+    left: 31%;
+    color: white;
+    border: 3px solid white;
+    border-radius: 50px;
+    text-align: center;
+    background: none;
+    pointer-events: auto;
+}
+    #jlink:hover {
+        color: #F4A73B;
+        border-color: #F4A73B;
+    }
+.rememberMe {
+    position: relative;
+    left: 33%;
+}
+.jbuttonLOGIN {
+    
+    height: 50px;
+    width: 100%;
+    background-image: linear-gradient(#FBBF2B, #F4A73B);
+    border-radius: 50px;
+    margin: 7px;
+    align-items: center;
+}
+.jinput {
+    height: 60px;
+    width: 100%;
+    background: none;
+    border: 5px solid white;
+    border-radius: 50px;
+    color: white;
+    font-size: 25px;
+    margin: 7px;
+    align-content: center;
+    text-align: center;
+   
+}
+
+
+#containerLOGIN {
+    position: relative;
+    top: 50px;
+    background-image: linear-gradient(#20C8EC, #673BE7);
+    height: 800px;
+}
+.jcheckbox {
+    border: 10px solid red;
+    background: red;
+}
+
+
+.cos {
+    color: white;
+    top: 35px;
+    position: relative;
+    left: 37%;
+}
+
+
+/*JANKOWANIE
+      KONIEC
+
+*/
+
 article,
 aside,
 details,
@@ -6851,4 +6992,4 @@ td.visible-print {
     margin-top: 100px;
     margin-bottom: 20px;
     color: red;
-}
+}*/
