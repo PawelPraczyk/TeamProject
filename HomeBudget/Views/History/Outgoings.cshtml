@@ -26,9 +26,9 @@
         <input style="background:#F4A73B;color: white; border: 3px solid #F4A73B" type="submit" name="submit" value="Search" />
     }
 </p>
-<table id="outgoingstable">
-    <caption>The list of previous purchases</caption>
-    <tr>
+<table id="outgoingstable" style="border: 3px solid white">
+    <caption style="color:whitesmoke; font-size: 20px; font-weight: bold; margin-bottom: 10px;">The list of previous purchases</caption>
+    <tr style="background:#f4a73b; border-radius: 50px;">
         <th>@Html.ActionLink("Category", "Outgoings", new { sortOrder = ViewBag.NameSortParm })</th>
         <th>@Html.ActionLink("Price", "Outgoings", new { sortOrder = ViewBag.PriceSortParm })</th>
         <th>@Html.ActionLink("User", "Outgoings", new { sortOrder = ViewBag.UserSortParm })</th>
@@ -39,7 +39,7 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        <tr style="background: white; color:#f4a73b;  margin-bottom: 100px; font-weight:bold;">
             <td>@Html.DisplayFor(modelItem => item.Category.Name)</td>
             <td>@Html.DisplayFor(modelItem => item.Price)</td>
             <td>@Html.DisplayFor(modelItem => item.User.UserName)</td>
