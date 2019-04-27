@@ -6,31 +6,32 @@
 @using PagedList;
 @using PagedList.Mvc;
 
-
-<h2 style="margin-top: 50px;">@ViewBag.Title.</h2>
+<div style=" display: flex; justify-content: space-around; " class="barContainer">
+    <a style="padding: 10px; margin-top: 70px; background:  #F4A73B; border-radius: 30px; color:  white; font-size: 20px; font-weight: bold" ; href="Incomes">INCOMES</a>
+    <a style="padding: 10px; margin-top: 70px; background: white; border-radius: 30px;color:  #F4A73B ; font-size: 20px; font-weight: bold" href="Balance">BALANCE</a>
+    <a style="padding: 10px; margin-top: 70px; background: white; border-radius: 30px;color: #F4A73B ; font-size: 20px; font-weight: bold" href="Outgoings">OUTGOINGS</a>
+</div>
+<h2 style="margin-top: 50px; color: white">History of INCOMES.</h2>
 
 <h3>@ViewBag.Message</h3>
 
 
-<div class="nav-history">
-    <ul>
-        <li>@Html.ActionLink("Incomes", "Incomes")</li>
-        <li>@Html.ActionLink("Balance", "Balance")</li>
-        <li>@Html.ActionLink("Outgoings", "Outgoings")</li>
-    </ul>
-</div>
 
+
+<h4 style="color: white">Enter your value and search for your income</h4>
 <p>
     @using (Html.BeginForm("Incomes", "History", FormMethod.Get))
     {
-        <input type="text" name="search" placeholder="Enter value" />
-        <input type="submit" name="submit" value="Search" />
+        <input style ="border: 3px solid #F4A73B; background: none; color:white" type="text" name="search" placeholder="  " />
+        <input style="background:#F4A73B;color: white; border: 3px solid #F4A73B" type="submit" name="submit" value="Search" />
+        
     }
 </p>
-<table id="incomestable">
-    <caption>The list of previous incomes</caption>
-    <tr>
-        <th>@Html.ActionLink("Category", "Incomes", new { sortOrder = ViewBag.NameSortParm })</th>
+
+<table id="incomestable" style="border: 3px solid white">
+    <caption style="color:whitesmoke; font-size: 20px; font-weight: bold; margin-bottom: 10px;">The list of previous incomes</caption>
+    <tr style="background:#f4a73b; border-radius: 50px;">
+        <th >@Html.ActionLink("Category", "Incomes", new { sortOrder = ViewBag.NameSortParm })</th>
         <th>@Html.ActionLink("Price", "Incomes", new { sortOrder = ViewBag.PriceSortParm })</th>
         <th>@Html.ActionLink("User", "Incomes", new { sortOrder = ViewBag.UserSortParm })</th>
         <th>@Html.ActionLink("Date", "Incomes", new { sortOrder = ViewBag.DateSortParm })</th>
@@ -38,11 +39,11 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@Html.DisplayFor(itemModel => item.CategoryIncome.Name)</td>
-            <td>@Html.DisplayFor(itemModel => item.Price)</td>
-            <td>@Html.DisplayFor(itemModel => item.User.UserName)</td>
-            <td>@Html.DisplayFor(itemModel => item.Date)</td>
+        <tr style="background: white; color:#f4a73b;  margin-bottom: 100px; font-weight:bold;">
+            <td style="border-bottom: 1px solid grey">@Html.DisplayFor(itemModel => item.CategoryIncome.Name)</td>
+            <td style="border-bottom: 1px solid grey">@Html.DisplayFor(itemModel => item.Price)</td>
+            <td style="border-bottom: 1px solid grey">@Html.DisplayFor(itemModel => item.User.UserName)</td>
+            <td style="border-bottom: 1px solid grey">@Html.DisplayFor(itemModel => item.Date)</td>
         </tr>
     }
 
