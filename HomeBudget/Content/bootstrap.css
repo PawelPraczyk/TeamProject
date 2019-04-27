@@ -25,29 +25,42 @@
     POCZ¥TEK
 */
 
+/*PASEK BALANSU*/
+
+#barContainer{
+    width:100px;
+    height:300px;
+    background: red;
+    border:5px solid yellow;
+}
+#cos1{
+    color:red;
+}
+#jlista{
+    color: red;
+}
+#jlista:hover {
+    color: yellow;
+}
+#line {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100px;
+    
+    
+}
+#in {
+    position: relative;
+    background: green;
+}
+#out {
+    position: relative;
+    right: 0px;
+    background: red;
+}
 
 /*REJESTRACJA*/
-
-.custom-file-input::-webkit-file-upload-button {
-    visibility: hidden;
-}
-.custom-file-input {
-    position: relative;
-    left: 300px;
-    content: 'Select some files';
-    display: inline-block;
-    background: red;
-    border: 1px solid #999;
-    border-radius: 50px;
-    padding: 5px 8px;
-    outline: none;
-    white-space: nowrap;
-  
-    cursor: pointer;
-    text-shadow: 1px 1px #fff;
-    font-weight: 700;
-    font-size: 10pt;
-}
 
 
 .regButton {
@@ -6975,7 +6988,7 @@ td.visible-print {
     margin-bottom: 30px;
     width: 33%;
     float: left;
-    color: red;
+    color: white;
     padding: 8px 16px;
     text-decoration: none;
 }

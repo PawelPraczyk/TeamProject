@@ -1,24 +1,79 @@
 ﻿
 @{
-    ViewBag.Title = "Balance";
+    ViewBag.Title = "How poor are you?";
     var data = ViewBag.Message;
 }
-<h2 style="margin-top: 50px;">@ViewBag.Title.</h2>
+
+<div style=" display: flex; justify-content: space-around; " class="barContainer">
+    <a style="padding: 10px; margin-top: 70px; background: white; border-radius: 30px; color:  #F4A73B; font-size: 20px; font-weight: bold";  href="Incomes">INCOMES</a>
+    <a style="padding: 10px; margin-top: 70px; background: #F4A73B; border-radius: 30px;color: white ; font-size: 20px; font-weight: bold" href="Balance">BALANCE</a>
+    <a style="padding: 10px; margin-top: 70px; background: white; border-radius: 30px;color: #F4A73B; font-size: 20px; font-weight: bold" href="Outgoings">OUTGOINGS</a>
+
+</div>
+<h2 style="margin-top: 50px; color: white">@ViewBag.Title</h2>
+<h4 style="color: white">You can check your current balance here or switch for history of incomes and outgoings.</h4>
 
 
-<div class="nav-history">
-    <ul>
-        <li>@Html.ActionLink("Incomes", "Incomes")</li>
-        <li>@Html.ActionLink("Balance", "Balance")</li>
-        <li>@Html.ActionLink("Outgoings", "Outgoings")</li>
-    </ul>
+
+
+
+<h3 ><span style="color: white"> Your current balance: </span> <span style="color: #F4A73B">@data.UserBalance PLN</span> </h3>
+
+
+<div id="line">
+    <div id="in"> Incomes: @data.IncomesSum PLN </div>
+    <div id="out">Outgoing: @data.ExpensesSum PLN</div>
 </div>
 
-<h3>Your incomes: @data.IncomesSum</h3>
-<h3>Your expenses: @data.ExpensesSum</h3>
-<h3>Your current balance: @data.UserBalance</h3>
+<script>
+    
+    var inJJ = '@data.IncomesSum';
+    var outJJ = '@data.ExpensesSum';
+    inJJ = inJJ.replace(/,/g, '.');
+    outJJ = outJJ.replace(/,/g, '.');
+    var inJ = Number(inJJ);
+    var outJ = Number(outJJ);
+    var widthIn = inJ*100 / (inJ + outJ);
+    var widthOut = outJ*100 / (inJ + outJ);
+    var income = document.getElementById("in");
+    var outgoing = document.getElementById('out');
+    var line = document.getElementById('line');
+    line.style.width = '60vw';
+    line.style.height = '100px';
+    income.style.width = widthIn+'%';
+    outgoing.style.width = widthOut + '%';
+    outgoing.style.position = 'relative';
+    line.style.border = '5px solid none';
+    line.style.borderBottomLeftRadius = '50px';
+    line.style.borderTopLeftRadius = '50px';
+    line.style.borderBottomRightRadius = '50px';
+    line.style.borderTopRightRadius = '50px';
+    line.style.top = '70px';
+
+    income.style.background = '#7ABD49';
+    income.style.border = '5px solid #7ABD49';
+    income.style.borderBottomLeftRadius = '50px';
+    income.style.borderTopLeftRadius = '50px';
+    income.style.textAlign = 'center';
+    income.style.fontWeight = 'bold';
+    income.style.fontSize = '30px';
+    income.style.lineHeight = '90px';
 
 
+    outgoing.style.background = '#F64D4D';
+    outgoing.style.border = '5px solid #F64D4D';
+    outgoing.style.borderBottomRightRadius = '50px';
+    outgoing.style.borderTopRightRadius = '50px';
+    outgoing.style.textAlign = 'center';
+    outgoing.style.fontWeight = 'bold';
+    outgoing.style.fontSize = '30px';
+    outgoing.style.lineHeight = '90px';
 
+    var button = document.getElementById("jlink");
+    var b1 = document.getElementById("jincoming");
+    var b1 = document.getElementById("jincoming");
 
-
+    button.addEventListener("click", function () {
+        document.location.href = 'Outgoings';
+    });
+</script>
