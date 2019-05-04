@@ -52,20 +52,20 @@ namespace HomeBudget
                 }
             }
 
-            // creating Creating Manager role    
-            if (!roleManager.RoleExists("Manager"))
+            // creating Creating parent role    
+            if (!roleManager.RoleExists("Parent"))
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "Manager";
+                role.Name = "Parent";
                 roleManager.Create(role);
 
             }
 
-            // creating Creating Employee role    
-            if (!roleManager.RoleExists("Employee"))
+            // creating Creating Child role    
+            if (!roleManager.RoleExists("Child"))
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "Employee";
+                role.Name = "Child";
                 roleManager.Create(role);
 
             }
