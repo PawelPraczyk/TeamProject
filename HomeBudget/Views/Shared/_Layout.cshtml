@@ -23,7 +23,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>
-                    <img src="@Url.Action("UserPhotos", "Home")" height="48" width="48"/>
+                    <img src="@Url.Action("UserPhotos", "Home")" height="48" width="48" />
 
                 </li>
                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -32,6 +32,17 @@
                 <li>@Html.ActionLink("History", "Balance", "History")</li>
                 <li>@Html.ActionLink("Savings", "ChangeSavings", "Savings")</li>
                 <li>@Html.ActionLink("Not", "ListOfNotifications", "Notifications")</li>
+
+                <li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Admin"))
+                        {
+                            @Html.ActionLink("Admin Page", "Index", "Admin")
+                        }
+                    }
+                </li>
+
             </ul>
             @Html.Partial("_LoginPartial")
 

@@ -42,6 +42,13 @@
                 @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "regGroupForm" })
             </div>
         </div>
+         <div class="form-group">   
+        @Html.Label("user Role", new { @class = "col-md-2 control-label" })   
+        <div class="col-md-10">   
+            @*@Html.DropDownList("Name")*@   
+            @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, " ")   
+        </div>   
+    </div>   
         <div class="regGroup">
             @Html.LabelFor(m => m.UserPhoto, new { @class = "regGroupName" })
             <div>
