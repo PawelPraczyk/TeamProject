@@ -55,16 +55,19 @@
 
             
         </div>
+            
+           
 
-        
-        
-       
 
             
             <div>@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })</div>
             <div>
+                <a style="color:white; position: relative;left: 60px" href="ForgotPassword">Click here if you forgot your password</a>
+            </div>
+            <div>
                 <input type="submit" value="Login Now" class="jbuttonLOGIN" />
             </div>
+            
             <div class="rememberMe">
                 @Html.CheckBoxFor(m => m.RememberMe, new { @class = "jcheckbox" })
 
