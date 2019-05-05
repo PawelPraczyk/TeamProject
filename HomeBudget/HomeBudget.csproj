@@ -205,6 +205,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\beforeLoginController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ExpensesController.cs" />
     <Compile Include="Controllers\HistoryController.cs" />
@@ -376,7 +377,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Views\Account\Myprofile.aspx" />
-    <Content Include="Views\index.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -419,6 +419,7 @@
     <Content Include="Views\Shared\Layouts\_Notifications.cshtml" />
     <Content Include="Views\Notifications\ListOfNotifications.cshtml" />
     <Content Include="Views\Savings\ChangeSavings.cshtml" />
+    <Content Include="Views\beforeLogin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Category\" />
