@@ -50,7 +50,6 @@ namespace HomeBudget.Models
     {
         [Required]
         [Display(Name = "Email")]
-        [EmailAddress]
         public string Email { get; set; }
 
         [Required]
@@ -65,7 +64,11 @@ namespace HomeBudget.Models
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "UserRoles")]
+        public string UserRoles { get; set; }
+
+        [Required]
+        [Display(Name = "UserName")]
         public string UserName { get; set; }
 
         [Required]

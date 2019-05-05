@@ -7,11 +7,11 @@ namespace HomeBudget.Migrations
     {
         public override void Up()
         {
-            Sql("INSERT INTO CATEGORIES (Id, Name, Color) VALUES (1, 'Food','red')");
-            Sql("INSERT INTO CATEGORIES (Id, Name, Color) VALUES (2, 'Bills','black')");
-            Sql("INSERT INTO CATEGORIES (Id, Name, Color) VALUES (3, 'House','green')");
-            Sql("INSERT INTO CATEGORIES (Id, Name, Color) VALUES (4, 'Cosmetics','pink')");
-            Sql("INSERT INTO CATEGORIES (Id, Name, Color) VALUES (5, 'Clothes','blue')");
+            Sql("INSERT INTO CATEGORIES (Id, Name, Color, AmountMoney,PercentMoney) VALUES (1, 'Food','red',400,0.4m)");
+            Sql("INSERT INTO CATEGORIES (Id, Name, Color, AmountMoney,PercentMoney) VALUES (2, 'Bills','black',200,0.2m)");
+            Sql("INSERT INTO CATEGORIES (Id, Name, Color, AmountMoney,PercentMoney) VALUES (3, 'House','green', 20,0.06m)");
+            Sql("INSERT INTO CATEGORIES (Id, Name, Color, AmountMoney,PercentMoney) VALUES (4, 'Cosmetics','pink', 40,0.03m)");
+            Sql("INSERT INTO CATEGORIES (Id, Name, Color, AmountMoney,PercentMoney) VALUES (5, 'Clothes','blue',50,0.05m)");
         }
 
         public override void Down()
