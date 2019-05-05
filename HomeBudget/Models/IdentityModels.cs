@@ -9,7 +9,8 @@ namespace HomeBudget.Models
     public class ApplicationUser : IdentityUser
     {
         public byte[] UserPhoto { get; set; }
-        public decimal SavingsAmount { get; set; }     
+        public decimal SavingsAmount { get; set; }
+        public bool IfSavingsPercent { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
