@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
@@ -205,6 +205,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\beforeLoginController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ExpensesController.cs" />
@@ -391,7 +392,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Views\Account\Myprofile.aspx" />
-    <Content Include="Views\index.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -434,6 +434,7 @@
     <Content Include="Views\Shared\Layouts\_Notifications.cshtml" />
     <Content Include="Views\Notifications\ListOfNotifications.cshtml" />
     <Content Include="Views\Savings\ChangeSavings.cshtml" />
+    <Content Include="Views\beforeLogin\Index.cshtml" />
     <Content Include="Views\Savings\ChangePercent.cshtml" />
     <Content Include="Views\Savings\ChangeAmount.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
@@ -441,6 +442,7 @@
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\Info.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Category\" />

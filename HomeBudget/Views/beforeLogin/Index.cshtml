@@ -1,0 +1,23 @@
+﻿<div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Budget app", "Index", "beforeLogin", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+             
+                @Html.Partial("_LoginPartial")
+
+            </div>
+        </div>
+    </div>
+</div>
+<div style="position: relative; top: 70px">
+    <h1 style="color:white">Welcome on home page before login</h1>
+    
+</div>

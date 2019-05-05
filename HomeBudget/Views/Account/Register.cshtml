@@ -2,36 +2,55 @@
 @{
     ViewBag.Title = "Register";
 }
+<div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Budget app", "Index", "beforeLogin", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
 
-<h2>@ViewBag.Title.</h2>
+                @Html.Partial("_LoginPartial")
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="regGroup">
-        <div class="">
-            @Html.LabelFor(m => m.UserName, new { @class = "regGroupName" })
-        </div>
-        <div>
-            @Html.TextBoxFor(m => m.UserName, new { @class = "regGroupForm" })
+            </div>
         </div>
     </div>
-    <div class="regGroup">
-        <div class="">
-            @Html.LabelFor(m => m.Email, new { @class = "regGroupName" })
+</div>
+<div style="position: relative; top: 70px">
+    <h2>@ViewBag.Title.</h2>
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>Create a new account.</h4>
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="regGroup">
+            <div class="">
+                @Html.LabelFor(m => m.UserName, new { @class = "regGroupName" })
+            </div>
+            <div>
+                @Html.TextBoxFor(m => m.UserName, new { @class = "regGroupForm" })
+            </div>
         </div>
-        <div>
-            @Html.TextBoxFor(m => m.Email, new { @class = "regGroupForm" })
+        <div class="regGroup">
+            <div class="">
+                @Html.LabelFor(m => m.Email, new { @class = "regGroupName" })
+            </div>
+            <div>
+                @Html.TextBoxFor(m => m.Email, new { @class = "regGroupForm" })
+            </div>
         </div>
-    </div>
-    
+
         <div class="regGroup">
             @Html.LabelFor(m => m.Password, new { @class = "regGroupName" })
-        
-                @Html.PasswordFor(m => m.Password, new { @class = "regGroupForm" })
+
+            @Html.PasswordFor(m => m.Password, new { @class = "regGroupForm" })
 
         </div>
         <div class="regGroup">
@@ -59,7 +78,7 @@
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="regButton" value="Register Now" />
         </div>
-    
+
         /*
         <div class="form-group">
             @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
@@ -101,8 +120,9 @@
             </div>
         </div>
         */
-        }
+    }
 
-        @section Scripts {
-            @Scripts.Render("~/bundles/jqueryval")
-        }
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</div>
