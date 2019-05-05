@@ -280,6 +280,18 @@
     <Compile Include="Migrations\201904181549238_addspending.Designer.cs">
       <DependentUpon>201904181549238_addspending.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904280914535_addedMoneyToCategory.cs" />
+    <Compile Include="Migrations\201904280914535_addedMoneyToCategory.Designer.cs">
+      <DependentUpon>201904280914535_addedMoneyToCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904281017248_ThingsForSavings.cs" />
+    <Compile Include="Migrations\201904281017248_ThingsForSavings.Designer.cs">
+      <DependentUpon>201904281017248_ThingsForSavings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904281133369_ThingsForSavings1.cs" />
+    <Compile Include="Migrations\201904281133369_ThingsForSavings1.Designer.cs">
+      <DependentUpon>201904281133369_ThingsForSavings1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -422,6 +434,8 @@
     <Content Include="Views\Shared\Layouts\_Notifications.cshtml" />
     <Content Include="Views\Notifications\ListOfNotifications.cshtml" />
     <Content Include="Views\Savings\ChangeSavings.cshtml" />
+    <Content Include="Views\Savings\ChangePercent.cshtml" />
+    <Content Include="Views\Savings\ChangeAmount.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Role\Create.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
@@ -489,6 +503,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904181549238_addspending.resx">
       <DependentUpon>201904181549238_addspending.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904280914535_addedMoneyToCategory.resx">
+      <DependentUpon>201904280914535_addedMoneyToCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904281017248_ThingsForSavings.resx">
+      <DependentUpon>201904281017248_ThingsForSavings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904281133369_ThingsForSavings1.resx">
+      <DependentUpon>201904281133369_ThingsForSavings1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

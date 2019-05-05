@@ -43,18 +43,22 @@ namespace HomeBudget.Controllers
                 CategoryIncome = category,
                 Date = viewModel.GetDataTime()
             };
-            _context.Incomes.Add(income);
+            if (user.IfSavingsPercent)
+            {
+                _context.Incomes.Add(income);
+                _context.SaveChanges();
+                var incomesHistory = _context.Incomes;
+                var IncomesSum = incomesHistory.AsEnumerable().Where(g => g.User == user).Sum(s => s.Price);
+                var SavingsAmount = user.SavingsAmount;
+                for (int i = 1; i <= _context.Categories.Count(); i++)
+                    _context.Categories.Find(i).AvailableMoney = (IncomesSum - SavingsAmount) * _context.Categories.Find(i).PercentMoney - _context.Categories.Find(i).SpendMoney;
+            }
+            else
+            {
+                for (int i = 1; i <= _context.Categories.Count(); i++)
+                    _context.Categories.Find(i).AvailableMoney = _context.Categories.Find(i).AmountMoney - _context.Categories.Find(i).SpendMoney;
+            }
             _context.SaveChanges();
-            var incomesHistory = _context.Incomes;
-            var IncomesSum = incomesHistory.AsEnumerable().Where(g => g.User == user).Sum(s => s.Price);
-            var SavingsAmount = user.SavingsAmount;
-            _context.Categories.Find(1).AvailableMoney = (IncomesSum - SavingsAmount) * 0.4m - _context.Categories.Find(1).SpendMoney;
-            _context.Categories.Find(2).AvailableMoney = (IncomesSum - SavingsAmount) * 0.2m - _context.Categories.Find(2).SpendMoney;
-            _context.Categories.Find(3).AvailableMoney = (IncomesSum - SavingsAmount) * 0.06m - _context.Categories.Find(3).SpendMoney;
-            _context.Categories.Find(4).AvailableMoney = (IncomesSum - SavingsAmount) * 0.03m - _context.Categories.Find(4).SpendMoney;
-            _context.Categories.Find(5).AvailableMoney = (IncomesSum - SavingsAmount) * 0.05m - _context.Categories.Find(5).SpendMoney;
-            _context.SaveChanges();
-
             return RedirectToAction("Index", "Home");
         }
     }
