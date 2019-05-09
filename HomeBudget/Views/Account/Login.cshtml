@@ -37,7 +37,7 @@
             @Html.AntiForgeryToken()
 
 
-            
+
 
 
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -53,13 +53,13 @@
             <div id="jpassword">
                 @Html.PasswordFor(m => m.Password, new { placeholder = "Password", @class = "jinput" })
 
-            
-        </div>
-            
-           
+
+            </div>
 
 
-            
+
+
+
             <div>@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })</div>
             <div>
                 <a style="color:white; position: relative;left: 60px" href="ForgotPassword">Click here if you forgot your password</a>
@@ -67,7 +67,7 @@
             <div>
                 <input type="submit" value="Login Now" class="jbuttonLOGIN" />
             </div>
-            
+
             <div class="rememberMe">
                 @Html.CheckBoxFor(m => m.RememberMe, new { @class = "jcheckbox" })
 
@@ -85,6 +85,7 @@
     </div>
 </div>
 </div>
+
 <script>
     var button = document.getElementById("jlink");
 
