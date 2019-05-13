@@ -45,7 +45,7 @@ namespace HomeBudget.Controllers
         }
 
         [Authorize]
-        public ActionResult Incomes(string sortOrder, string search, int? i)
+        public ActionResult Incomes(string sortOrder, string search, int? i, int? filter)
         {
             ViewBag.NamesortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.UsersortParm = String.IsNullOrEmpty(sortOrder) ? "user_desc" : "";
@@ -76,13 +76,32 @@ namespace HomeBudget.Controllers
                 case "Date":
                     incomesHistory = incomesHistory.OrderBy(g => g.Date).ToList().ToPagedList(i ?? 1, 100);
                     break;
+                
             }
 
+            switch (filter)
+            {
+               
+                case 1:
+                    var date = DateTime.Now.AddDays(-7);
+                    incomesHistory = incomesHistory.Select(n => n).Where(g => g.Date >= date).ToList().ToPagedList(i ?? 1, 100);
+                    break;
+                case 2:
+                    var date1 = DateTime.Now.AddDays(-30);
+                    incomesHistory = incomesHistory.Select(n => n).Where(g => g.Date >= date1).ToList().ToPagedList(i ?? 1, 100);
+                    break;
+                case 3:
+                    var date2 = DateTime.Now.AddDays(-91);
+                    incomesHistory = incomesHistory.Select(n => n).Where(g => g.Date >= date2).ToList().ToPagedList(i ?? 1, 100);
+                    break;
+            }
+
+            
             return View(incomesHistory);
         }
 
         [Authorize]
-        public ActionResult Outgoings(string sortOrder, string search, int? i)
+        public ActionResult Outgoings(string sortOrder, string search, int? i, int? filter)
         {
             ViewBag.NamesortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.UsersortParm = String.IsNullOrEmpty(sortOrder) ? "user_desc" : "";
@@ -112,6 +131,23 @@ namespace HomeBudget.Controllers
                     break;
                 case "Date":
                     expensesHistory = expensesHistory.OrderBy(g => g.Date).ToList().ToPagedList(i ?? 1, 100);
+                    break;
+            }
+
+            switch (filter)
+            {
+
+                case 1:
+                    var date = DateTime.Now.AddDays(-7);
+                    expensesHistory = expensesHistory.Select(n => n).Where(g => g.Date >= date).ToList().ToPagedList(i ?? 1, 100);
+                    break;
+                case 2:
+                    var date1 = DateTime.Now.AddDays(-30);
+                    expensesHistory = expensesHistory.Select(n => n).Where(g => g.Date >= date1).ToList().ToPagedList(i ?? 1, 100);
+                    break;
+                case 3:
+                    var date2 = DateTime.Now.AddDays(-91);
+                    expensesHistory = expensesHistory.Select(n => n).Where(g => g.Date >= date2).ToList().ToPagedList(i ?? 1, 100);
                     break;
             }
 

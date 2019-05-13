@@ -4,5 +4,63 @@
     Layout = "~/Views/Shared/Layouts/_Notifications.cshtml";
 }
 
-<h2>ListOfNotifications</h2>
 
+
+<div class="notification-icon" style="margin-top:100px">
+    <span class="glyphicon glyphicon-envelope " style="font-size:25px"></span>
+    <span class="badge" id="ntCnt"></span>
+</div>
+
+<div id="divNotificaion">
+
+</div>
+
+@section scripts{
+
+    @Scripts.Render("~/Scripts/jquery.signalR-2.1.2.min.js")
+
+    <script src="~/signalr/Hubs/"></script>
+
+}
+
+<script>
+    $(document).ready(function () {
+        debugger
+        // Proxy created on the fly
+        var hub = $.connection.senderHub;
+        // Declare a function on the hub hub so the server can invoke it
+        hub.client.displayStatus = function () {
+            debugger
+            getData();
+        };
+        // Start the connection
+        $.connection.hub.start();
+        getData();
+        function getData() {
+            var divNotificaion = $('#divNotificaion');
+            $.ajax({
+                url: '/Notifications/GetNotification',
+                type: 'GET',
+                datatype: 'json',
+                success: function (data) {
+                    debugger
+                    data = $.parseJSON(data);
+                    if (data.length > 0) {
+                        divNotificaion.empty();
+                        //// set Count
+                        $('#ntCnt').text(data.length);
+                        ///Make notification html
+                        for (var i = 0; i < data.length; i++) {
+                            var notification = '<div class="alert alert-danger alert-dismissable">' +
+                                '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'
+                                + data[i].Message +
+                    '</div>'
+                            divNotificaion.append(notification);
+                        }
+                    }
+                }, error: function (r, e, w) {
+                }
+            });
+        }
+    })
+</script>

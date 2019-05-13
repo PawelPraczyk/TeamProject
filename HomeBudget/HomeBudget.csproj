@@ -46,6 +46,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AspNet.SignalR.Client, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Client.2.4.1\lib\net45\Microsoft.AspNet.SignalR.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.1.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -221,6 +230,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hubs\SenderHub.cs" />
     <Compile Include="Migrations\201903261435460_InitialCreate.cs" />
     <Compile Include="Migrations\201903261435460_InitialCreate.Designer.cs">
       <DependentUpon>201903261435460_InitialCreate.cs</DependentUpon>
@@ -269,10 +279,6 @@
     <Compile Include="Migrations\201904161247192_FixedExpense.Designer.cs">
       <DependentUpon>201904161247192_FixedExpense.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201904181221376_sth.cs" />
-    <Compile Include="Migrations\201904181221376_sth.Designer.cs">
-      <DependentUpon>201904181221376_sth.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201904181240301_savingsAdded.cs" />
     <Compile Include="Migrations\201904181240301_savingsAdded.Designer.cs">
       <DependentUpon>201904181240301_savingsAdded.cs</DependentUpon>
@@ -293,18 +299,30 @@
     <Compile Include="Migrations\201904281133369_ThingsForSavings1.Designer.cs">
       <DependentUpon>201904281133369_ThingsForSavings1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905111529001_notify.cs" />
+    <Compile Include="Migrations\201905111529001_notify.Designer.cs">
+      <DependentUpon>201905111529001_notify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905131107435_elo.cs" />
+    <Compile Include="Migrations\201905131107435_elo.Designer.cs">
+      <DependentUpon>201905131107435_elo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AddNotification.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Balance.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CategoryIncome.cs" />
     <Compile Include="Models\Expense.cs" />
+    <Compile Include="Models\FiltringParamiters.cs" />
     <Compile Include="Models\FixedExpense.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Income.cs" />
     <Compile Include="Models\JqDate.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\NotificationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ExpenseFormViewModel.cs" />
@@ -384,6 +402,8 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.2.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.2.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -497,9 +517,6 @@
     <EmbeddedResource Include="Migrations\201904161247192_FixedExpense.resx">
       <DependentUpon>201904161247192_FixedExpense.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904181221376_sth.resx">
-      <DependentUpon>201904181221376_sth.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904181240301_savingsAdded.resx">
       <DependentUpon>201904181240301_savingsAdded.cs</DependentUpon>
     </EmbeddedResource>
@@ -514,6 +531,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904281133369_ThingsForSavings1.resx">
       <DependentUpon>201904281133369_ThingsForSavings1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905111529001_notify.resx">
+      <DependentUpon>201905111529001_notify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905131107435_elo.resx">
+      <DependentUpon>201905131107435_elo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

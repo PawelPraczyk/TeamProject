@@ -53,6 +53,9 @@
     {
         <input style="border: 3px solid #F4A73B; background: none; color:white" type="text" name="search" placeholder="  " />
         <input style="background:#F4A73B;color: white; border: 3px solid #F4A73B" type="submit" name="submit" value="Search" />
+        <button style="background:#F4A73B;color: white; border: 3px solid #F4A73B">@Html.ActionLink("Last 7 days", "Outgoings", new { filter = 1 })</button>
+        <button style="background:#F4A73B;color: white; border: 3px solid #F4A73B">@Html.ActionLink("Last 30 days", "Outgoings", new { filter = 2 })</button>
+        <button style="background:#F4A73B;color: white; border: 3px solid #F4A73B">@Html.ActionLink("Last 3 months", "Outgoings", new { filter = 3 })</button>
     }
 </p>
 <table id="outgoingstable" style="border: 3px solid white">

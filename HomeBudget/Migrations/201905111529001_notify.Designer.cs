@@ -7,13 +7,13 @@ namespace HomeBudget.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class sth : IMigrationMetadata
+    public sealed partial class notify : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(sth));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(notify));
         
         string IMigrationMetadata.Id
         {
-            get { return "201904181221376_sth"; }
+            get { return "201905111529001_notify"; }
         }
         
         string IMigrationMetadata.Source

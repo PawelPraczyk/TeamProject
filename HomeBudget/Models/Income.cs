@@ -23,5 +23,6 @@ namespace HomeBudget.Models
 
         [Required]
         public byte CategoryId { get; set; }
+
     }
 }

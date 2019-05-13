@@ -57,7 +57,9 @@ namespace HomeBudget.Controllers
             {
                 for (int i = 1; i <= _context.Categories.Count(); i++)
                     _context.Categories.Find(i).AvailableMoney = _context.Categories.Find(i).AmountMoney - _context.Categories.Find(i).SpendMoney;
+                _context.Incomes.Add(income);
             }
+            
             _context.SaveChanges();
             return RedirectToAction("Index", "Home");
         }

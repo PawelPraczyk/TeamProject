@@ -56,7 +56,7 @@
         /* określa oceniowanie tabeli za pomocą CSS3*/
     }
 </style>
-<div >
+<div>
     <div style=" display: flex; justify-content: space-around; " class="barContainer">
         <a style="padding: 10px; margin-top: 70px; background:  #F4A73B; border-radius: 30px; color:  white; font-size: 20px; font-weight: bold" ; href="Incomes">INCOMES</a>
         <a style="padding: 10px; margin-top: 70px; background: white; border-radius: 30px;color:  #F4A73B ; font-size: 20px; font-weight: bold" href="Balance">BALANCE</a>
@@ -72,13 +72,15 @@
     <h4 style="color: white">Enter your value and search for your income</h4>
     <p>
         @using (Html.BeginForm("Incomes", "History", FormMethod.Get))
-        {
-            <input style="border: 3px solid #F4A73B; background: none; color:white" type="text" name="search" placeholder="  " />
-            <input style="background:#F4A73B;color: white; border: 3px solid #F4A73B" type="submit" name="submit" value="Search" />
-
-        }
+    {
+        <input style="border: 3px solid #F4A73B; background: none; color:white" type="text" name="search" placeholder="  " />
+        <input style="background:#F4A73B;color: white; border: 3px solid #F4A73B" type="submit" name="submit" value="Search" />
+        <button style="background:#F4A73B;color: white; border: 3px solid #F4A73B">@Html.ActionLink("Last 7 days", "Incomes", new { filter = 1 })</button>
+        <button style="background:#F4A73B;color: white; border: 3px solid #F4A73B">@Html.ActionLink("Last 30 days", "Incomes", new { filter = 2 })</button>
+        <button style="background:#F4A73B;color: white; border: 3px solid #F4A73B">@Html.ActionLink("Last 3 months", "Incomes", new { filter = 3 })</button>
+}
     </p>
-
+    
     <table id="" style="border: 3px solid white">
         <caption style="color:whitesmoke; font-size: 20px; font-weight: bold; margin-bottom: 10px;">The list of previous incomes</caption>
         <tr style="background:#f4a73b; border-radius: 50px;">

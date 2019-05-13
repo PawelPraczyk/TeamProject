@@ -10,9 +10,10 @@ namespace HomeBudget.Controllers
 {
     public class ExpensesController : Controller
     {
+        
         private readonly ApplicationDbContext _context;
         // GET: Expenses
-
+        
         public ExpensesController()
         {
             _context = new ApplicationDbContext();
@@ -23,6 +24,7 @@ namespace HomeBudget.Controllers
         {
             var viewModel = new ExpenseFormViewModel
             {
+                
                 Categories = _context.Categories.ToList(),
             };
             return View(viewModel);
@@ -32,16 +34,19 @@ namespace HomeBudget.Controllers
         [HttpPost]
         public ActionResult Create(ExpenseFormViewModel viewModel)
         {
+            
             var userId = User.Identity.GetUserId();
             var user = _context.Users.Single(u => u.Id == userId);
             var category = _context.Categories.Single(c => c.Id == viewModel.Category);
             var expense = new Expense
+            
             {
                 User = user,
                 Price = viewModel.Price,
                 Category = category,
-                Date = viewModel.GetDataTime()            
-            };
+                Date = viewModel.GetDataTime()
+
+        };
             _context.Expenses.Add(expense);
             _context.SaveChanges();
             _context.Categories.Find(viewModel.Category).AvailableMoney-=viewModel.Price;
@@ -75,7 +80,8 @@ namespace HomeBudget.Controllers
                 Category = category,
                 Date = viewModel.GetDataTime(),
                 Price = viewModel.Price,
-                Name = viewModel.Name
+                Name = viewModel.Name,
+                Email = user.Email
             };
             _context.FixedExpenses.Add(fixedExpense);
             _context.SaveChanges();

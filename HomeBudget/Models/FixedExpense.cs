@@ -13,8 +13,7 @@ namespace HomeBudget.Models
         public decimal Price { get; set; }
         public ApplicationUser User { get; set; }
         public DateTime Date { get; set; }
-
         public byte CategoryId { get; set; }
-
+        public string Email { get; set; }
     }
 }
