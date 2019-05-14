@@ -11,9 +11,6 @@ namespace HomeBudget.ViewModels
     {
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public int Category { get; set; }
-        public IEnumerable<Category> Categories { get; set; }
-        
         public string Date { get; set; }
         public string Time { get; set; }
         public DateTime GetDataTime()

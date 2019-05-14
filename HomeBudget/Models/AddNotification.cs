@@ -78,6 +78,18 @@ namespace HomeBudget.Models
             _context.Notifications.Add(notifications);
             _context.SaveChanges();
         }
+
+        public void UpdateRemainder(FixedExpense fixedExpense)
+        {
+            int id = fixedExpense.Id;
+            FixedExpense helper = _context.FixedExpenses.Find(id);
+            _context.FixedExpenses.Remove(helper);
+            _context.SaveChanges();
+            DateTime Uppdate = fixedExpense.Date.AddMonths(1);
+            fixedExpense.Date = Uppdate;
+            _context.FixedExpenses.Add(fixedExpense);
+            _context.SaveChanges();
+        }
         public async Task CheckForRemainder()
         {
             while (true)
@@ -91,7 +103,7 @@ namespace HomeBudget.Models
                     var remaind = _context.FixedExpenses.Single(g => g.Date <= date1 && g.Date >= date2);
                     Create(remaind.Name);
                     await SendEmailNotificationAsync(remaind.Email, remaind.Name);
-                    
+                    UpdateRemainder(remaind);
                 }
                 await Task.Delay(60000);
             }

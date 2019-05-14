@@ -224,6 +224,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MyDateController.cs" />
     <Compile Include="Controllers\NotificationsController.cs" />
+    <Compile Include="Controllers\RegularExpenseController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SavingsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -306,6 +307,14 @@
     <Compile Include="Migrations\201905131107435_elo.cs" />
     <Compile Include="Migrations\201905131107435_elo.Designer.cs">
       <DependentUpon>201905131107435_elo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905141609593_e.cs" />
+    <Compile Include="Migrations\201905141609593_e.Designer.cs">
+      <DependentUpon>201905141609593_e.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905142146478_drop.cs" />
+    <Compile Include="Migrations\201905142146478_drop.Designer.cs">
+      <DependentUpon>201905142146478_drop.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -451,7 +460,6 @@
     <Content Include="Views\Incomes\CreateIncome.cshtml" />
     <Content Include="Views\History\Outgoings.cshtml" />
     <Content Include="Views\History\Incomes.cshtml" />
-    <Content Include="Views\Expenses\FixedExpense.cshtml" />
     <Content Include="Views\Shared\Layouts\_Notifications.cshtml" />
     <Content Include="Views\Notifications\ListOfNotifications.cshtml" />
     <Content Include="Views\Savings\ChangeSavings.cshtml" />
@@ -463,6 +471,10 @@
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\Info.cshtml" />
+    <Content Include="Views\Notifications\Delete.cshtml" />
+    <Content Include="Views\RegularExpense\Create.cshtml" />
+    <Content Include="Views\RegularExpense\Edit.cshtml" />
+    <Content Include="Views\RegularExpense\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Category\" />
@@ -537,6 +549,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905131107435_elo.resx">
       <DependentUpon>201905131107435_elo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905141609593_e.resx">
+      <DependentUpon>201905141609593_e.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905142146478_drop.resx">
+      <DependentUpon>201905142146478_drop.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

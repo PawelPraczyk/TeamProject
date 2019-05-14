@@ -1,0 +1,74 @@
+﻿@model IEnumerable<HomeBudget.Models.FixedExpense>
+
+@{
+    ViewBag.Title = "List of regular expenses";
+}
+<div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Budżecik", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <img src="@Url.Action("UserPhotos", "Home")" height="48" width="48" />
+
+                    </li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Add expense", "Create", "Expenses")</li>
+                    <li>@Html.ActionLink("Add income", "CreateIncome", "Incomes")</li>
+                    <li>@Html.ActionLink("History", "Balance", "History")</li>
+                    <li>@Html.ActionLink("Savings", "ChangeSavings", "Savings")</li>
+                    <li>@Html.ActionLink("Not", "ListOfNotifications", "Notifications")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+
+            </div>
+        </div>
+    </div>
+</div>
+    <h2 style="margin-top:100px">List of regular expenses</h2>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            Every @Html.DisplayFor(modelItem => item.Date.Day)th day of the month
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteConfirmed", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
