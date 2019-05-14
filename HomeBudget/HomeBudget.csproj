@@ -312,10 +312,6 @@
     <Compile Include="Migrations\201905141609593_e.Designer.cs">
       <DependentUpon>201905141609593_e.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905142146478_drop.cs" />
-    <Compile Include="Migrations\201905142146478_drop.Designer.cs">
-      <DependentUpon>201905142146478_drop.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddNotification.cs" />
@@ -552,9 +548,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905141609593_e.resx">
       <DependentUpon>201905141609593_e.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905142146478_drop.resx">
-      <DependentUpon>201905142146478_drop.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
