@@ -3,16 +3,16 @@ namespace HomeBudget.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class PopulateCategoriesTable : DbMigration
+    public partial class elo : DbMigration
     {
         public override void Up()
         {
-            
+            AddColumn("dbo.FixedExpenses", "Email", c => c.String());
         }
-
+        
         public override void Down()
         {
-            Sql("DELETE FROM CATEGORIES WHERE Id IN (1,2,3,4,5)");
+            DropColumn("dbo.FixedExpenses", "Email");
         }
     }
 }

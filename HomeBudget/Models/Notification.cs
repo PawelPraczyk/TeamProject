@@ -5,12 +5,11 @@ using System.Web;
 
 namespace HomeBudget.Models
 {
-    public class FixedExpense
+    public class Notification
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
+        public string Message { get; set; }
         public DateTime Date { get; set; }
-        public string Email { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }

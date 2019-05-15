@@ -13,6 +13,7 @@ namespace HomeBudget
         {
             ConfigureAuth(app);
             createRolesandUsers();
+            app.MapSignalR();
         }
 
 

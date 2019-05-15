@@ -1,6 +1,8 @@
 ﻿using HomeBudget.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 
@@ -12,10 +14,9 @@ namespace HomeBudget.ViewModels
         public int Category { get; set; }
         public IEnumerable<Category> Categories { get; set; }
         public string Date { get; set; }
-        public string Time { get; set; }
         public DateTime GetDataTime()
         {
-            return DateTime.Parse(string.Format("{0} {1}", Date, Time));
+            return DateTime.ParseExact(Date, "MM/dd/yyyy", CultureInfo.InvariantCulture);
         }
     }
 }
