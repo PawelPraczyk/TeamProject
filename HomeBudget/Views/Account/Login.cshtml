@@ -1,34 +1,20 @@
 ﻿@using System.Web.UI.WebControls
 @using HomeBudget.Models
 @model LoginViewModel
-<div>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Budget app", "Index", "beforeLogin", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
+@{
+    Layout = "~/Views/Shared/Layouts/BEFORElogin.cshtml";
+}
 
-                @Html.Partial("_LoginPartial")
-
-            </div>
-        </div>
-    </div>
-</div>
 <div style="position: relative;top: 70px">
     @{
         ViewBag.Title = "Log in";
     }
 
-    <h1>@ViewBag.Title.</h1>
-    <h4>Use a local account to log in.</h4>
+    <h1 style="color:black; font-family: 'Ubuntu'">@ViewBag.Title.</h1>
+    <h4 style="color:black; font-family: 'Ubuntu'">Use a local account to log in.</h4>
     <hr />
-    <div id="jloginForm">
+    <div id="jloginForm" style="position: relative; background-color: #F5A623; border: 0.5px solid black; margin:50px; padding:100px">
+
         <div class="userPhotoLOGIN"></div>
         @*<img class="userPhotoLOGIN" src="https://img.icons8.com/ios/50/000000/user-male-circle.png">*@
 
@@ -43,7 +29,7 @@
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
             <div>
-                @Html.TextBoxFor(m => m.Email, new { placeholder = "Username", @class = "jinput" })
+                @Html.TextBoxFor(m => m.Email, new { placeholder = "Email", @class = "jinput" })
 
 
             </div>
@@ -61,21 +47,27 @@
 
 
             <div>@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })</div>
+            <div style="display: flex; flex-direction: row;">
             <div>
-                <a style="color:white; position: relative;left: 60px" href="ForgotPassword">Click here if you forgot your password</a>
+                <a style="color:black;font-weight: bold; position: relative;left: 60px" href="ForgotPassword">Forgot a password?</a>
+            </div>
+                <div class="rememberMe">
+                    @Html.CheckBoxFor(m => m.RememberMe, new { @class = "jcheckbox" })
+
+                    @Html.LabelFor(m => m.RememberMe)
+                </div>
             </div>
             <div>
-                <input type="submit" value="Login Now" class="jbuttonLOGIN" />
+                <button style="position: relative; left: 10px; width: 360px" type="submit" value="Login Now" class="btn btn-primary btn-lg">Login Now!</button>
+                @*<input type="submit" value="Login Now" class="jbuttonLOGIN" style="background: darkred" />*@
             </div>
 
-            <div class="rememberMe">
-                @Html.CheckBoxFor(m => m.RememberMe, new { @class = "jcheckbox" })
 
-                @Html.LabelFor(m => m.RememberMe)
+            <div style="display: flex; flex-direction: column">
+                <p style="color: black; " class="cos">Not a member?</p>
+                <button style="position: relative; top: 30px; left: 10px" id="jcos" type="button" class="btn btn-outline-primary">Create new account</button>
             </div>
-
-            <p class="cos">Not a member?</p>
-            <input id="jlink" type="button" value="Create new account" />
+            
 
 
 
@@ -87,7 +79,7 @@
 </div>
 
 <script>
-    var button = document.getElementById("jlink");
+    var button = document.getElementById("jcos");
 
     button.addEventListener("click", function () {
         document.location.href = 'Register';

@@ -272,7 +272,7 @@ namespace HomeBudget.Controllers
                 await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
                 return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
-
+            
             // If we got this far, something failed, redisplay form
             return View(model);
         }

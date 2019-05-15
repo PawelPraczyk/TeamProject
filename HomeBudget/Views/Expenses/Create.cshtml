@@ -1,46 +1,19 @@
 ﻿@model HomeBudget.ViewModels.ExpenseFormViewModel
 @{
     ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div >
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Budżecik", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <img src="@Url.Action("UserPhotos", "Home")" height="48" width="48" />
+@{
+    Layout = "~/Views/Shared/Layouts/AFTERlogin.cshtml";
+}
 
-                    </li>
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Add expense", "Create", "Expenses")</li>
-                    <li>@Html.ActionLink("Add income", "CreateIncome", "Incomes")</li>
-                    <li>@Html.ActionLink("History", "Balance", "History")</li>
-                    <li>@Html.ActionLink("Savings", "ChangeSavings", "Savings")</li>
-                    <li>@Html.ActionLink("Not", "ListOfNotifications", "Notifications")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-
-            </div>
-        </div>
-    </div>
-</div>
-<div style="position: relative; top: 70px">
-    <h2>Add a expenseee</h2>
+<div style="position: relative; top: 70px;color:black; font-family: 'Ubuntu'">
+    <h2 style="color:black; font-family: 'Ubuntu'">Add a expenseee</h2>
     <head>
         <link rel="stylesheet" href="../../Content/calculator.css">
     </head>
     @using (Html.BeginForm("Create", "Expenses"))
     {
-        //@Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
         <div class="form-group">
             <div id="background">
                 <div class="form-group" style="margin-bottom: 0px; margin-left:50px">
@@ -84,10 +57,11 @@
                 </div>
             </div>
         </div>
+
         <div class="form-group" style="width:200px; margin-left:470px">
             @Html.LabelFor(m => m.Category)
             @Html.DropDownListFor(m => m.Category, new SelectList(Model.Categories, "Id", "Name", "Color"), "", new { @class = "form-control" })
-            <h1>Hello world!</h1>
+ 
         </div>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group" style="width:200px; margin-left:470px">

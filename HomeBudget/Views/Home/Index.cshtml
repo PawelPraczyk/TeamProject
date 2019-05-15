@@ -1,40 +1,14 @@
 ﻿@model HomeBudget.Models.JqDate
-<div>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Budżecik", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <img src="@Url.Action("UserPhotos", "Home")" height="48" width="48" />
+@{
+    Layout = "~/Views/Shared/Layouts/AFTERlogin.cshtml";
+}
 
-                    </li>
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Add expense", "Create", "Expenses")</li>
-                    <li>@Html.ActionLink("Add income", "CreateIncome", "Incomes")</li>
-                    <li>@Html.ActionLink("History", "Balance", "History")</li>
-                    <li>@Html.ActionLink("Savings", "ChangeSavings", "Savings")</li>
-                    <li>@Html.ActionLink("Not", "ListOfNotifications", "Notifications")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-
-            </div>
-        </div>
-    </div>
-</div>
 @{
     ViewBag.Title = "Index";
 }
 <div style="position: relative; top: 70px">
     <h1 id="container">
-        <span style="color: white">Hello Username  </span>
+        <span style="color:black; font-family: 'Ubuntu'">Hello Username  </span>
 
         <img id="zdj" src="@Url.Action("UserPhotos", "Home" )" style="width:160px;height:160px; background: #FFFFFF;
     margin: auto;
@@ -43,7 +17,7 @@
     padding: 6px;
     box-shadow: 0px 0px 20px #888;" />
     </h1>
-   
+
     <link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/hot-sneaks/jquery-ui.css" rel="stylesheet" />
     @section Scripts {
         <script src="~/Scripts/jquery-1.12.4.min.js"></script>
@@ -54,6 +28,6 @@
             });
         </script>
     }
-        <h3 style="color: white">Welcome on home page after login</h3>
-    
-    </div>
+    <h3 style="color:black; font-family: 'Ubuntu'">Welcome on home page after login</h3>
+
+</div>
