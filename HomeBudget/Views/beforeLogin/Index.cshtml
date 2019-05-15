@@ -1,28 +1,16 @@
-﻿<head>
+﻿@{
+    Layout = "~/Views/Shared/Layouts/BEFORElogin.cshtml";
+}
+
+
+
+<head>
     <script type="text/javascript" src="http://404bajery.pl/fall/script.php?id=money/Money6.gif&how=false"></script>
 </head>
-<div>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Budget app", "Index", "beforeLogin", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
 
-                @Html.Partial("_LoginPartial")
-
-            </div>
-        </div>
-    </div>
-</div>
 <div style="position: relative; top: 70px; display: flex;flex-direction:column; align-items: center">
-    <h1 style="color:orange; font-weight: bold">Welcome on home page before login</h1>
+    <h1 style="color:black; font-family: 'Ubuntu'">Welcome on home page before login</h1>
     <img style="width:50%" src="http://images7.memedroid.com/images/UPLOADED926/58f4aeec8a021.jpeg" alt="Alternate Text" />
-  
+
 </div>
 

@@ -1,0 +1,15 @@
+﻿#jlink {
+    top: 40px;
+    position: relative;
+    left: 31%;
+    color: white;
+    border: 3px solid white;
+    border-radius: 50px;
+    text-align: center;
+    background: none;
+    pointer-events: auto;
+}
+#jlink:hover {
+    color: #F4A73B;
+    border-color: red;
+}
