@@ -8,11 +8,13 @@ namespace HomeBudget.Migrations
         public override void Up()
         {
             AddColumn("dbo.Categories", "category", c => c.Int(nullable: false));
+          
         }
-        
+
         public override void Down()
         {
             DropColumn("dbo.Categories", "category");
+            
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 
@@ -13,8 +14,8 @@ namespace HomeBudget.Models
         [Required]
         public string Name { get; set; }
 
-        [Required]
-        public string Color { get; set; }
+        //[Required]
+        public CatColor Color  { get; set; }
 
         public ApplicationUser User { get; set; }
 

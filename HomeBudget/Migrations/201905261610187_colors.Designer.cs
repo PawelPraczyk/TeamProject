@@ -7,13 +7,13 @@ namespace HomeBudget.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class PopulateCategoriesTable : IMigrationMetadata
+    public sealed partial class colors : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PopulateCategoriesTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(colors));
         
         string IMigrationMetadata.Id
         {
-            get { return "201903301213007_PopulateCategoriesTable"; }
+            get { return "201905261610187_colors"; }
         }
         
         string IMigrationMetadata.Source

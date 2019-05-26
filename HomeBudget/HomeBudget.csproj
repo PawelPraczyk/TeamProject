@@ -233,17 +233,9 @@
     <Compile Include="Migrations\201903301206056_OverrideConventionsForExpenseAndCategory.Designer.cs">
       <DependentUpon>201903301206056_OverrideConventionsForExpenseAndCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201903301213007_PopulateCategoriesTable.cs" />
-    <Compile Include="Migrations\201903301213007_PopulateCategoriesTable.Designer.cs">
-      <DependentUpon>201903301213007_PopulateCategoriesTable.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201903302049534_CreateIncomeTable1.cs" />
     <Compile Include="Migrations\201903302049534_CreateIncomeTable1.Designer.cs">
       <DependentUpon>201903302049534_CreateIncomeTable1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903302056113_PopulateCategoriesIncomeTable.cs" />
-    <Compile Include="Migrations\201903302056113_PopulateCategoriesIncomeTable.Designer.cs">
-      <DependentUpon>201903302056113_PopulateCategoriesIncomeTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201903302057316_UpdateOperations.cs" />
     <Compile Include="Migrations\201903302057316_UpdateOperations.Designer.cs">
@@ -293,10 +285,19 @@
     <Compile Include="Migrations\201904281133369_ThingsForSavings1.Designer.cs">
       <DependentUpon>201904281133369_ThingsForSavings1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905261610187_colors.cs" />
+    <Compile Include="Migrations\201905261610187_colors.Designer.cs">
+      <DependentUpon>201905261610187_colors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905261645517_ojojo.cs" />
+    <Compile Include="Migrations\201905261645517_ojojo.Designer.cs">
+      <DependentUpon>201905261645517_ojojo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Balance.cs" />
+    <Compile Include="Models\CatColor.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CategoryIncome.cs" />
     <Compile Include="Models\Expense.cs" />
@@ -470,14 +471,8 @@
     <EmbeddedResource Include="Migrations\201903301206056_OverrideConventionsForExpenseAndCategory.resx">
       <DependentUpon>201903301206056_OverrideConventionsForExpenseAndCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903301213007_PopulateCategoriesTable.resx">
-      <DependentUpon>201903301213007_PopulateCategoriesTable.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903302049534_CreateIncomeTable1.resx">
       <DependentUpon>201903302049534_CreateIncomeTable1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903302056113_PopulateCategoriesIncomeTable.resx">
-      <DependentUpon>201903302056113_PopulateCategoriesIncomeTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903302057316_UpdateOperations.resx">
       <DependentUpon>201903302057316_UpdateOperations.cs</DependentUpon>
@@ -514,6 +509,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904281133369_ThingsForSavings1.resx">
       <DependentUpon>201904281133369_ThingsForSavings1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905261610187_colors.resx">
+      <DependentUpon>201905261610187_colors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905261645517_ojojo.resx">
+      <DependentUpon>201905261645517_ojojo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

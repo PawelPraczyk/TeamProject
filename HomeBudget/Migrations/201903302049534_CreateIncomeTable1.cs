@@ -13,7 +13,7 @@ namespace HomeBudget.Migrations
                 {
                     Id = c.Byte(nullable: false),
                     Name = c.String(nullable: false),
-                    Color = c.String(nullable: false),
+                    //Color = c.String(nullable: false),
                 })
                 .PrimaryKey(t => t.Id);
 
