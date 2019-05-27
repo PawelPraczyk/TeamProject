@@ -12,6 +12,10 @@
 
     @using (Html.BeginForm("ChangeSavings", "Savings"))
     {
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Change percent", "ChangePercent", "Savings", new { area = "" }, new { @class = "navbar-brand" })</li>
+        <li>@Html.ActionLink("Change amount", "ChangeAmount", "Savings", new { area = "" }, new { @class = "navbar-brand" })</li>
+    </ul>
         <div class="form-group" style="width:200px; margin-left:470px">
             @Html.LabelFor(m => m.SavingsAmount)
             @Html.TextBoxFor(m => m.SavingsAmount, new { @class = "form-control" })
@@ -20,5 +24,5 @@
 
         <button type="submit" class="btn btn-primary" style="width:200px; margin-left:470px">Save</button>
 
-    }
+        }
 </div>
