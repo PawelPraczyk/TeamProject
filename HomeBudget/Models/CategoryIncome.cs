@@ -13,8 +13,8 @@ namespace HomeBudget.Models
         [Required]
         public string Name { get; set; }
 
-        [Required]
-        public string Color { get; set; }
-        //public Image Icon { get; set; }
+        public CatColor Color { get; set; }
+
+        public MyImage Icon { get; set; }
     }
 }

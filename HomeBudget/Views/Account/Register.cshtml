@@ -8,16 +8,16 @@
 
 
 <div style="position: relative; top: 70px">
-    <h2 style="color:black; font-family: 'Ubuntu'">@ViewBag.Title.</h2>
-
+    <h1 style="color:black; font-family: 'Ubuntu'">@ViewBag.Title.</h1>
+    <h4 style="color:black; font-family: 'Ubuntu'">Create a new account.</h4>
+    <hr />
     @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
-        <h4 style="color:black; font-family: 'Ubuntu'">Create a new account.</h4>
-        <hr />
-        <div style="position:relative; background-color: #F5A623; border: 0.5px solid black; margin:50px;padding:100px">
+
+        <div style="position:relative; background: rgba(90, 166, 130, 0.9); border: 0.5px solid black;border-radius:7px; margin:50px;padding:100px">
             <!-- Numeric Textfield with Floating Label -->
-            
+
             <div class="form-group">
                 @Html.LabelFor(m => m.UserName, new { @class = "col-md-4 control-label" })
                 @*<label class="col-md-4 control-label">First Name</label>*@
@@ -35,13 +35,13 @@
             </div>
 
             @*<div class="regGroup">
-                <div style=" color:white" class="">
-                    @Html.LabelFor(m => m.UserName, new { @class = "regGroupName" })
-                </div>
-                <div>
-                    @Html.TextBoxFor(m => m.UserName, new { @class = "regGroupForm" })
-                </div>
-            </div>*@
+                    <div style=" color:white" class="">
+                        @Html.LabelFor(m => m.UserName, new { @class = "regGroupName" })
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "regGroupForm" })
+                    </div>
+                </div>*@
             <div class="form-group">
                 @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label" })
                 <div class="col-md-4 inputGroupContainer">
@@ -56,13 +56,13 @@
                 </div>
             </div>
             @*<div class="regGroup">
-                <div class="">
-                    @Html.LabelFor(m => m.Email, new { @class = "regGroupName" })
-                </div>
-                <div>
-                    @Html.TextBoxFor(m => m.Email, new { @class = "regGroupForm" })
-                </div>
-            </div>*@
+                    <div class="">
+                        @Html.LabelFor(m => m.Email, new { @class = "regGroupName" })
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "regGroupForm" })
+                    </div>
+                </div>*@
             <div class="form-group">
                 @Html.LabelFor(m => m.Password, new { @class = "col-md-4 control-label" })
                 @*<label class="col-md-4 control-label">Password</label>*@
@@ -79,11 +79,11 @@
                 </div>
             </div>
             @*<div class="regGroup">
-                @Html.LabelFor(m => m.Password, new { @class = "regGroupName" })
+                    @Html.LabelFor(m => m.Password, new { @class = "regGroupName" })
 
-                @Html.PasswordFor(m => m.Password, new { @class = "regGroupForm" })
+                    @Html.PasswordFor(m => m.Password, new { @class = "regGroupForm" })
 
-            </div>*@
+                </div>*@
             <div class="form-group">
                 @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-4 control-label" })
                 @*<label class="col-md-4 control-label">Password</label>*@
@@ -99,15 +99,15 @@
                     </div>
                 </div>
             </div>
-            
+
             @*<div class="regGroup">
-                <div class="">
-                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "regGroupName" })
-                </div>
-                <div>
-                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "regGroupForm" })
-                </div>
-            </div>*@
+                    <div class="">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "regGroupName" })
+                    </div>
+                    <div>
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "regGroupForm" })
+                    </div>
+                </div>*@
             <div class="form-group">
                 @Html.Label("User role", new { @class = "col-md-4 control-label" })
                 <div class="col-md-4 selectContainer">
@@ -117,24 +117,24 @@
                             <div class="input-group-text"><i class="fas fa-bars"></i></div>
                         </div>
                         @*<select name="department" class="form-control selectpicker">
-                            <option value="">Select your role</option>
-                            <option>Child</option>
-                            <option>Parent</option>
-                        </select>*@
-                        
-                            @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, " ")
-                         
-                       
+                                <option value="">Select your role</option>
+                                <option>Child</option>
+                                <option>Parent</option>
+                            </select>*@
+
+                        @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, " ")
+
+
                     </div>
                 </div>
             </div>
             @*<div class="form-group">
-                @Html.Label("user Role", new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
-                   @Html.DropDownList("Name")
-                    @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, " ")
-                </div>
-            </div>*@
+                    @Html.Label("user Role", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                       @Html.DropDownList("Name")
+                        @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, " ")
+                    </div>
+                </div>*@
             <div class="form-group">
                 @Html.LabelFor(m => m.UserPhoto, new { @class = "col-md-4 control-label" })
                 @*<label class="col-md-4 control-label">User photo</label>*@
@@ -145,143 +145,143 @@
                 </div>
             </div>
             @*<div class="regGroup">
-                @Html.LabelFor(m => m.UserPhoto, new { @class = "regGroupName" })
-                <div>
-                    <input type="file" name="UserPhoto" class="jfileUpload" accept=".png,.jpg,.jpeg,.gif,.tif" />
+                    @Html.LabelFor(m => m.UserPhoto, new { @class = "regGroupName" })
+                    <div>
+                        <input type="file" name="UserPhoto" class="jfileUpload" accept=".png,.jpg,.jpeg,.gif,.tif" />
 
-                </div>
-            </div>*@
+                    </div>
+                </div>*@
             <button type="submit" class="btn btn-primary btn-lg btn-block">Register Now!</button>
             @*<div class="col-md-offset-2 col-md-10">
-                <input type="submit" class="regButton" value="Register Now" />
-            </div>*@
+                    <input type="submit" class="regButton" value="Register Now" />
+                </div>*@
 
         </div>
         @*<div class="container">
 
-            <form class="well form-horizontal" action=" " method="post" id="contact_form">
-                <fieldset>
+                <form class="well form-horizontal" action=" " method="post" id="contact_form">
+                    <fieldset>
 
 
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">First Name</label>
-                        <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">First Name</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
+                                    </div>
+                                    <input name="first_name" placeholder="First Name" class="form-control" type="text">
                                 </div>
-                                <input name="first_name" placeholder="First Name" class="form-control" type="text">
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Text input-->
+                        <!-- Text input-->
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Last Name</label>
-                        <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Last Name</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
+                                    </div>
+                                    <input name="last_name" placeholder="Last Name" class="form-control" type="text">
                                 </div>
-                                <input name="last_name" placeholder="Last Name" class="form-control" type="text">
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">E-Mail</label>
-                        <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fas fa-unlock"></i></div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">E-Mail</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-unlock"></i></div>
+                                    </div>
+                                    <input name="email" placeholder="E-Mail Address" class="form-control" type="text">
                                 </div>
-                                <input name="email" placeholder="E-Mail Address" class="form-control" type="text">
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Username</label>
-                        <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Username</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
 
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fas fa-unlock"></i></div>
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-unlock"></i></div>
+                                    </div>
+                                    <input name="user_name" placeholder="Username" class="form-control" type="text">
                                 </div>
-                                <input name="user_name" placeholder="Username" class="form-control" type="text">
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Text input-->
+                        <!-- Text input-->
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Password</label>
-                        <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fas fa-unlock"></i></div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Password</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-unlock"></i></div>
+                                    </div>
+                                    <input name="user_password" placeholder="Password" class="form-control" type="password">
                                 </div>
-                                <input name="user_password" placeholder="Password" class="form-control" type="password">
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Text input-->
+                        <!-- Text input-->
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Confirm Password</label>
-                        <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fas fa-unlock"></i></div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Confirm Password</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-unlock"></i></div>
+                                    </div>
+                                    <input name="confirm_password" placeholder="Confirm Password" class="form-control" type="password">
                                 </div>
-                                <input name="confirm_password" placeholder="Confirm Password" class="form-control" type="password">
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">User role</label>
-                        <div class="col-md-4 selectContainer">
-                            <div class="input-group">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">User role</label>
+                            <div class="col-md-4 selectContainer">
+                                <div class="input-group">
 
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fas fa-bars"></i></div>
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-bars"></i></div>
+                                    </div>
+                                    <select name="department" class="form-control selectpicker">
+                                        <option value="">Select your role</option>
+                                        <option>Child</option>
+                                        <option>Parent</option>
+                                    </select>
                                 </div>
-                                <select name="department" class="form-control selectpicker">
-                                    <option value="">Select your role</option>
-                                    <option>Child</option>
-                                    <option>Parent</option>
-                                </select>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">User photo</label>
-                        <div class="col-md-4 ">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">User photo</label>
+                            <div class="col-md-4 ">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile">
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" class="regButton" value="Register Now" />
-                    </div>
-                    <!-- Text input-->
-                    <!-- Text input-->
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" class="regButton" value="Register Now" />
+                        </div>
+                        <!-- Text input-->
+                        <!-- Text input-->
 
 
 
 
-                </fieldset>
-            </form>
-        </div>*@
+                    </fieldset>
+                </form>
+            </div>*@
     }
 
- 
+
 </div>
 
 @section Scripts {

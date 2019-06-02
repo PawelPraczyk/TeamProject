@@ -195,7 +195,7 @@ namespace HomeBudget.Controllers
                 }
 
 
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
 
                 //Here we pass the byte array to user context to store in db
                 user.UserPhoto = imageData;

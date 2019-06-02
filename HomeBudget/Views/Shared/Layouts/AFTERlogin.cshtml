@@ -18,38 +18,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
 
-<body style="background-size:cover;  height:100vh;background: #0069D9;color:black; font-family: 'Ubuntu';">
+<body style="background-size:cover;  height:100vh;background-position: center;background-size: cover; background-image: url('/Images/back.JPG');color:black; font-family: 'Ubuntu';">
     @* background-image: linear-gradient(#20C8EC, #673BE7);">*@
-@*<div>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Budżecik", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <img src="@Url.Action("UserPhotos", "Home")" height="48" width="48" />
 
-                    </li>
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("Add expense", "Create", "Expenses", new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("Add income", "CreateIncome", "Incomes", new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("History", "Balance", "History", new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("Savings", "ChangeSavings", "Savings", new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("Not", "ListOfNotifications", "Notifications", new { @class = "navbar-brand" })</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-
-            </div>
-        </div>
-    </div>
-</div>*@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" role="navigation">
     <div style="width: 100vw; display: flex; flex-direction: row; justify-content: space-around" class="container">
         
@@ -59,14 +30,27 @@
 
         <div class="collapse navbar-collapse" id="exCollapsingNavbar">
             <ul class="nav navbar-nav">
-                
-                <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                <li>@Html.ActionLink("Add expense", "Create", "Expenses", new { area = "" }, new { @class = "navbar-brand" })</li>
-                <li>@Html.ActionLink("Add income", "CreateIncome", "Incomes", new { area = "" }, new { @class = "navbar-brand" })</li>
-                <li>@Html.ActionLink("History", "Balance", "History", new { area = "" }, new { @class = "navbar-brand" })</li>
-                <li>@Html.ActionLink("Savings", "ChangeSavings", "Savings", new { area = "" }, new { @class = "navbar-brand" })</li>
-                <li>@Html.ActionLink("Not", "ListOfNotifications", "Notifications", new { area = "" }, new { @class = "navbar-brand" })</li>
+                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                {
 
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Add expense", "Create", "Expenses", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Add income", "CreateIncome", "Incomes", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("History", "Balance", "History", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Savings", "ChangeSavings", "Savings", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Not", "ListOfNotifications", "Notifications", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Admin Page", "Index", "Admin", new { area = "" }, new { @class = "navbar-brand" })</li>
+
+                }
+                @if (Request.IsAuthenticated && (User.IsInRole("Parent") || User.IsInRole("Child")))
+                {
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Add expense", "Create", "Expenses", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Add income", "CreateIncome", "Incomes", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("History", "Balance", "History", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Savings", "ChangeSavings", "Savings", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Not", "ListOfNotifications", "Notifications", new { area = "" }, new { @class = "navbar-brand" })</li>
+                }
             </ul>
 
         </div>

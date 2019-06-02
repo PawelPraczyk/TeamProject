@@ -18,6 +18,7 @@ namespace HomeBudget.Migrations
         public override void Down()
         {
             DropColumn("dbo.Categories", "category");
+            Sql("DELETE FROM CATEGORIES WHERE Id IN (1,2,3,4,5)");
         }
     }
 }
