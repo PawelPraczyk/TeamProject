@@ -28,18 +28,36 @@ namespace HomeBudget.Controllers
         // GET: Category/Create
         public ActionResult Create()
         {
-            return View();
+            var cat = new Category
+            {
+                Colors = _context.Colors.ToList(),
+                Icons = _context.Icons.ToList(),
+            };
+            return View(cat);
         }
 
         // POST: Category/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
+        public ActionResult Create(Category cat)
+        { //jesli zaznaczono kategorie wydatkow, a jesli nie to do categoryincomes
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                var userId = User.Identity.GetUserId();
+                var user = _context.Users.Single(u => u.Id == userId);
+                var category = new Category
+                {
+                    Name = cat.Name,
+                    Color = cat.Color,
+                    User = user,
+                    Icon = cat.Icon,
+                    AvailableMoney = 0,
+                    SpendMoney = 0,
+                    AmountMoney = 0,
+                    PercentMoney = 0
+                };
+                _context.Categories.Add(category);
+                _context.SaveChanges();
+                return RedirectToAction("Create");
             }
             catch
             {
@@ -83,7 +101,7 @@ namespace HomeBudget.Controllers
             {
                 // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
             catch
             {
