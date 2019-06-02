@@ -25,7 +25,7 @@ namespace HomeBudget
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            SqlDependency.Start(@"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=C:\Users\janek\Desktop\TeamProject\HomeBudget\App_Data\aspnet-HomeBudget-20190326032835.mdf;Initial Catalog=aspnet-HomeBudget-20190326032835;Integrated Security=True");
+            SqlDependency.Start(@"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=C:\Users\Pablo\Desktop\alko\TeamProject\HomeBudget\App_Data\aspnet-HomeBudget-20190326032835.mdf;Initial Catalog=aspnet-HomeBudget-20190326032835;Integrated Security=True");
             Start();
         }
     }
