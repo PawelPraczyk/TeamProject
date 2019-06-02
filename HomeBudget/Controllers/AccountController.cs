@@ -13,9 +13,12 @@ using System.IO;
 
 namespace HomeBudget.Controllers
 {
+   
     [Authorize]
     public class AccountController : Controller
     {
+        private static readonly log4net.ILog log = LogHelper.GetLogger();
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 

@@ -27,6 +27,9 @@ namespace HomeBudget
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             SqlDependency.Start(@"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=C:\Users\Pablo\Desktop\alko\TeamProject\HomeBudget\App_Data\aspnet-HomeBudget-20190326032835.mdf;Initial Catalog=aspnet-HomeBudget-20190326032835;Integrated Security=True");
             Start();
+
+
+            log4net.Config.XmlConfigurator.Configure();
         }
     }
 }
