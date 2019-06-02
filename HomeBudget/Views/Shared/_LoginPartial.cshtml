@@ -3,18 +3,17 @@
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
-
-<ul class="nav navbar-nav navbar-right">
-    
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Options <span class="caret"></span>  </a>
-        <ul class="dropdown-menu">
-            <li>  @Html.ActionLink( "Edit Profile", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-        </ul>
-    </li>
-</ul>
+        @Html.AntiForgeryToken()
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Options
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="http://localhost:57502/Manage/Index">Manage account</a>
+                <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+            </div>
+        </div>
+      
     }
 }
 else

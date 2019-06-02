@@ -6,23 +6,24 @@
 @{
     Layout = "~/Views/Shared/Layouts/AFTERlogin.cshtml";
 }
+<div  class="jumbotron" style="height:430px; position: relative;top:220px;background: rgba(90, 166, 130, 0.9); border: 0.5px solid black;">
+    <div style="position: relative;top: 70px;">
+        <h2>Change savings</h2>
 
-<div style="position: relative;top: 70px;">
-    <h2>Change savings</h2>
+        @using (Html.BeginForm("ChangeSavings", "Savings"))
+        {
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Change percent", "ChangePercent", "Savings", new { area = "" }, new { @class = "navbar-brand" })</li>
+                <li>@Html.ActionLink("Change amount", "ChangeAmount", "Savings", new { area = "" }, new { @class = "navbar-brand" })</li>
+            </ul>
+            <div class="form-group" style="width:200px; margin-left:470px">
+                @Html.LabelFor(m => m.SavingsAmount)
+                @Html.TextBoxFor(m => m.SavingsAmount, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SavingsAmount)
+            </div>
 
-    @using (Html.BeginForm("ChangeSavings", "Savings"))
-    {
-    <ul class="nav navbar-nav">
-        <li>@Html.ActionLink("Change percent", "ChangePercent", "Savings", new { area = "" }, new { @class = "navbar-brand" })</li>
-        <li>@Html.ActionLink("Change amount", "ChangeAmount", "Savings", new { area = "" }, new { @class = "navbar-brand" })</li>
-    </ul>
-        <div class="form-group" style="width:200px; margin-left:470px">
-            @Html.LabelFor(m => m.SavingsAmount)
-            @Html.TextBoxFor(m => m.SavingsAmount, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.SavingsAmount)
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="width:200px; margin-left:470px">Save</button>
+            <button type="submit" class="btn btn-primary" style="width:200px; margin-left:470px">Save</button>
 
         }
-</div>
+    </div>
+    </div>

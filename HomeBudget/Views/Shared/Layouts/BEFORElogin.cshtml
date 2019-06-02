@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
 
-<body style="  height:100vh; background-position: center;background-size: cover; background: #0069D9;color:black; font-family: 'Ubuntu';">
+<body style="  height:100vh; background-position: center;background-size: cover; background-image: url('/Images/back.JPG');color:black; font-family: 'Ubuntu';">
     @* background-image: linear-gradient(#20C8EC, #673BE7);">*@
 @*<div>
         <div class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -43,9 +43,9 @@
             </div>
         </div>
     </div>*@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" role="navigation">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="color:white;" role="navigation">
     <div style="width: 100vw; display: flex; flex-direction: row; justify-content: space-around" class="container">
-        <div style="width: 100px">
+        <div style="width: 100px;color:black;">
             @Html.ActionLink("Budget app", "Index", "beforeLogin", new { area = "" }, new { @class = "navbar-brand" })
         </div>
         <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">

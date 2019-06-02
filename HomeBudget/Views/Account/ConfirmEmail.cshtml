@@ -1,10 +1,16 @@
 ﻿@{
     ViewBag.Title = "Confirm Email";
 }
-
-<h2>@ViewBag.Title.</h2>
-<div>
-    <p>
-        Thank you for confirming your email. Please @Html.ActionLink("Click here to Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-    </p>
+@{
+    Layout = "~/Views/Shared/Layouts/BEFORElogin.cshtml";
+}
+<div style="position: relative; top:70px;  background: rgba(90, 166, 130, 0.9); border: 0.5px solid black;border-radius:7px; margin:50px; padding:100px">
+    
+    <div>
+        <h1>Your email was confirmed correctly</h1>
+        <hr class="lead" />
+        <h3>
+            Thank you for confirming your email. Please click @Html.ActionLink(" here ", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" }) to Log in
+        </h3>
+    </div>
 </div>

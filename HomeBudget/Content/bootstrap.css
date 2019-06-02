@@ -103,8 +103,8 @@
     background-image: url("https://img.icons8.com/ios/50/000000/user-male-circle.png");
 }
 #jloginForm {
-    position: relative;
-    top: 30px;
+    
+    
     display: flex;
     flex-direction: column;
     justify-content: center;

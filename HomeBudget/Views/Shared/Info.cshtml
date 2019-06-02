@@ -1,5 +1,16 @@
 ﻿@{
     ViewBag.Title = "Info";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+
+@{
+    Layout = "~/Views/Shared/Layouts/BEFORElogin.cshtml";
+}
+
+<div class="jumbotron" style="position: relative; top:220px;background: rgba(90, 166, 130, 0.9); border: 0.5px solid black;">
+    <h2 class="display-4">Confirm yourself</h2>
+    <p class="lead">Pleasure to have you with us! </p>
+    <hr class="">
+    <p class="lead">
+        Check your email and confirm your account, you must be confirmed before you can log in.
+    </p>
+</div>

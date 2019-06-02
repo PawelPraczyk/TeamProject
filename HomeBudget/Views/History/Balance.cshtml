@@ -7,26 +7,33 @@
     var data = ViewBag.Message;
 }
 <body style="color:black; font-family: 'Ubuntu'">
+    <div class="jumbotron" style="position: relative;top:0px;background: rgba(90, 166, 130, 0.9); border: 0.5px solid black;">
+        <div style=" display: flex; justify-content: space-around; " class="barContainer" style="color:black; font-family: 'Ubuntu'">
+            <a style="padding: 10px; margin-top: 70px; background: white; border-radius: 30px; color:  #F4A73B; font-size: 20px; font-weight: bold" ; href="Incomes">INCOMES</a>
+            <a style="padding: 10px; margin-top: 70px; background: #F4A73B; border-radius: 30px;color: white ; font-size: 20px; font-weight: bold" href="Balance">BALANCE</a>
+            <a style="padding: 10px; margin-top: 70px; background: white; border-radius: 30px;color: #F4A73B; font-size: 20px; font-weight: bold" href="Outgoings">OUTGOINGS</a>
 
-    <div style=" display: flex; justify-content: space-around; " class="barContainer" style="color:black; font-family: 'Ubuntu'">
-        <a style="padding: 10px; margin-top: 70px; background: white; border-radius: 30px; color:  #F4A73B; font-size: 20px; font-weight: bold" ; href="Incomes">INCOMES</a>
-        <a style="padding: 10px; margin-top: 70px; background: #F4A73B; border-radius: 30px;color: white ; font-size: 20px; font-weight: bold" href="Balance">BALANCE</a>
-        <a style="padding: 10px; margin-top: 70px; background: white; border-radius: 30px;color: #F4A73B; font-size: 20px; font-weight: bold" href="Outgoings">OUTGOINGS</a>
-
+        </div>
     </div>
-    <h2 style="margin-top: 50px; "style="color:black; font-family: 'Ubuntu'">@ViewBag.Title</h2>
-    <h4 style="color:black; font-family: 'Ubuntu'">You can check your current balance here or switch for history of incomes and outgoings.</h4>
+    <div class="jumbotron" style="position: relative; top:50px;background: rgba(90, 166, 130, 0.9); border: 0.5px solid black;padding:100px">
+        <div style="position:relative; top:-50px;">
+            <h2 style=" " style="color:black; font-family: 'Ubuntu'">@ViewBag.Title</h2>
+            <hr />
+
+            <h4 style="color:black; font-family: 'Ubuntu'">You can check your current balance here or switch for history of incomes and outgoings.</h4>
 
 
 
 
 
-    <h3 style="top:50px;position: relative;"><span style=" color:black; font-family: 'Ubuntu'"> Your current balance: </span> <span style="color:black; font-family: 'Ubuntu'">@data.UserBalance PLN</span> </h3>
+            <h3 style="top:50px;position: relative;"><span style=" color:black; font-family: 'Ubuntu'"> Your current balance: </span> <span style="color:black; font-family: 'Ubuntu'">@data.UserBalance PLN</span> </h3>
 
 
-    <div id="line">
-        <div id="in"> <span style="font-size:1.3rem">Incomes: @data.IncomesSum PLN </span></div>
-        <div id="out"><span style="font-size:1.3rem">Outgoing: @data.ExpensesSum PLN</span></div>
+            <div id="line" style="position:relative; left:-40px; border: 1px solid black">
+                <div id="in"> <span style="font-size:1.3rem">Incomes: @data.IncomesSum PLN </span></div>
+                <div id="out"><span style="font-size:1.3rem">Outgoing: @data.ExpensesSum PLN</span></div>
+            </div>
+        </div>
     </div>
 </body>
 <script>
