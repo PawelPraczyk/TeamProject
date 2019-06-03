@@ -94,6 +94,7 @@ namespace HomeBudget.Controllers
 
                         // Uncomment to debug locally  
                         // ViewBag.Link = callbackUrl;
+                        log.Error("User didn't confirmed account");
                         ViewBag.errorMessage = "You must have a confirmed email to log on. "
                                              + "The confirmation token has been resent to your email account.";
                         return View("Error");
@@ -107,8 +108,10 @@ namespace HomeBudget.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    log.Info("User logged in.");
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
+                    log.Warn("User account locked out");
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
@@ -204,8 +207,8 @@ namespace HomeBudget.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                   // await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
+                    // await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    log.Info("User created a new account.");
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771   
                     // Send an email with this link   
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -392,6 +395,7 @@ namespace HomeBudget.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    log.Info($"User logged with {loginInfo.Login} provider");
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -434,6 +438,7 @@ namespace HomeBudget.Controllers
                     if (result.Succeeded)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        log.Info($"User created an account using {info.Login} provider");
                         return RedirectToLocal(returnUrl);
                     }
                 }
@@ -451,6 +456,7 @@ namespace HomeBudget.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            log.Info("User logget out");
             return RedirectToAction("Index", "beforeLogin");
         }
 
@@ -548,7 +554,7 @@ namespace HomeBudget.Controllers
                new { userId = userID, code = code }, protocol: Request.Url.Scheme);
             await UserManager.SendEmailAsync(userID, subject,
                "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
+            log.Info("Confirmation email has been send to the user email.");
             return callbackUrl;
         }
     }

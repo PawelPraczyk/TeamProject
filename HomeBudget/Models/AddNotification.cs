@@ -94,7 +94,6 @@ namespace HomeBudget.Models
         {
             while (true)
             {
-
                 var date = DateTime.Now.AddHours(24);
                 var date1 = date.AddMinutes(1);
                 var date2 = date.AddMinutes(-1);
