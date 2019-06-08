@@ -44,12 +44,14 @@ namespace HomeBudget.Controllers
             {
                 var userId = User.Identity.GetUserId();
                 var user = _context.Users.Single(u => u.Id == userId);
+                var icon = _context.Icons.Single(c => c.Id == cat.Icon.Id);
+                var color = _context.Colors.Single(c => c.Id == cat.Color.Id);
                 var category = new Category
                 {
                     Name = cat.Name,
-                    Color = cat.Color,
+                    Color = color,
                     User = user,
-                    Icon = cat.Icon,
+                    Icon = icon,
                     AvailableMoney = 0,
                     SpendMoney = 0,
                     AmountMoney = 0,

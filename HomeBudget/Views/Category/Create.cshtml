@@ -25,27 +25,36 @@
         </div>
 
         <div class="form-group" style="width:200px; margin-left:470px">
-            @*@Html.LabelFor(m => m.Color)*@
+            @Html.LabelFor(m => m.Color.Id)
             @*@Html.DropDownListFor(m => m.Color, new SelectList(Model.Colors, "Id", "Color"), "", new { @class = "form-control" })*@
-            <label for=@Model.Color>Choose a color: </label>
-            <select class="form-control" id=@Model.Color name=@Model.Color>
-                @foreach (var item in Model.Colors)
-                {
-                    <option id=@item style="background-color:@item.Color" value=@item></option>
-                }
-            </select>
+            @*@Html.Hidden("Color", Model.Color.Id, new { @style = "height:5px" })
+                <select id="myColors" class="form-group" style="width:100px">
+                    @foreach (var item in Model.Colors)
+                    {
+                    <option value="@item.Id" src="" style="background-color:@item.Color"
+                            data-description=""></option>
+                    }
+
+                </select>*@
+            @*<select class="form-control" id=@Model.Color name=@Model.Color>
+                    @foreach (var item in Model.Colors)
+                    {
+                        <option id=@item style="background-color:@item.Color" value=@item></option>
+                    }
+                </select>*@
         </div>
 
         <div class="form-group" style="width:200px; margin-left:470px">
-            @*@Html.LabelFor(m => m.Color)*@
+            @Html.LabelFor(m => m.Icon.Id)
             @*@Html.DropDownListFor(m => m.Color, new SelectList(Model.Colors, "Id", "Color"), "", new { @class = "form-control" })*@
-            <label for=@Model.Color>Choose an icon: </label>
-            <select id="myDropdown" class="form-group" style="width:100px">
+            @*<label for=@Model.Icon>Choose an icon: </label>*@
+            @Html.HiddenFor(m => m.Icon.Id, new { id = "Icon" })
+            @*@Html.Hidden("Icon",Model.Icon.Id)*@
+            <select id="myDropdown" class="form-group">
                 @foreach (var item in Model.Icons)
                 {
                     <option value="@item.Id" data-imagesrc="@item.ImagePath"
-                            data-description="">
-                    </option>
+                            data-description=""></option>
                 }
 
             </select>
@@ -67,23 +76,50 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-<script src="~/Scripts/jquery.ddslick.js"></script>
+    <script src="~/Scripts/jquery.ddslick.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
-    
     <script>
         $('#myDropdown').ddslick({
             onSelected: function (selectedData) {
                 $('#demoShowSelected').data('ddslick');
+                $('#showSelectedData').data('ddslick');
+                //document.getElementById('Icon').value = Data.selectedData.value;
             }
         });
         $('#demoShowSelected').ddslick({
             data: ddData,
             selectText: "Select your favorite social network",
+            //document.getElementById('Icon').value = ddData.selectedData.value;
         });
         $('#showSelectedData').on('click', function () {
             var ddData = $('#demoShowSelected').data('ddslick');
+            document.getElementById('Icon').value = ddData.selectedData.value;
             displaySelectedData("2: Getting Selected Dropdown Data", ddData);
         });
+
+        $('#demoDefaultSelection').ddslick({
+            data: ddData,
+            defaultSelectedIndex: 2
+        });
     </script>
+
+
+    @*<script>
+            $('#myColors').ddslick({
+                width: 100,
+                onSelected: function (selectedData) {
+                    $('#demoShowSelected').data('ddslick');
+                }
+            });
+            $('#demoShowSelected').ddslick({
+                data: ddData,
+                selectText: "Select your favorite social network",
+            });
+            $('#showSelectedData').on('click', function () {
+                var ddData = $('#demoShowSelected').data('ddslick');
+                document.getElementById('Color').value = ddData.value;
+                displaySelectedData("2: Getting Selected Dropdown Data", ddData);
+            });
+        </script>*@
 }
