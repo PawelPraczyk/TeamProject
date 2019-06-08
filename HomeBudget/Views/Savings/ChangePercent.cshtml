@@ -5,6 +5,16 @@
 }
 
 <h2>ChangePercent</h2>
+@using (Html.BeginForm("ChangeSavings", "Savings"))
+{
+    <div class="form-group" style="width:200px; margin-left:470px">
+        @Html.LabelFor(m => m.User.SavingsAmount)
+        @Html.TextBoxFor(m => m.User.SavingsAmount, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.User.SavingsAmount)
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="width:200px; margin-left:470px">Save</button>
+}
 
 @using (Html.BeginForm("ChangePercent", "Savings"))
 {

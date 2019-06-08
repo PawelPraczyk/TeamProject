@@ -6,23 +6,48 @@
 @{
     Layout = "~/Views/Shared/Layouts/AFTERlogin.cshtml";
 }
-
 <div style="position: relative;top: 70px;">
     <h2>Change savings</h2>
-
+    @*Wybierz swój sposób oszczędzania!*@
+    @*opis do opcji percent:
+        Jeśli wybierzesz tę opcję, to możesz zadecydować jaką kwotę chcesz zaoszczedzić w miesiącu i
+        określić jaki procent chcesz wydać na daną kategorię.*@
+    @*opis do opcji amount:
+        Jeśli wybierzesz tę opcję, to możesz zadecydować jaką kwotę chcesz zaoszczedzić w miesiącu na daną kategorię.*@
+    @*Nie ważne którą opcję wybierzesz, nasza aplikacja pomoże Ci zaoszczędzić przypominając ile możesz jeszcze wydać!
+        Tak, to takie proste!*@
     @using (Html.BeginForm("ChangeSavings", "Savings"))
     {
-    <ul class="nav navbar-nav">
-        <li>@Html.ActionLink("Change percent", "ChangePercent", "Savings", new { area = "" }, new { @class = "navbar-brand" })</li>
-        <li>@Html.ActionLink("Change amount", "ChangeAmount", "Savings", new { area = "" }, new { @class = "navbar-brand" })</li>
-    </ul>
-        <div class="form-group" style="width:200px; margin-left:470px">
-            @Html.LabelFor(m => m.SavingsAmount)
-            @Html.TextBoxFor(m => m.SavingsAmount, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.SavingsAmount)
+        <div class="page">
+            <div class="page__demo">
+                <div class="page__toggle">
+                    <label class="toggle">
+                        <input class="toggle__input" type="checkbox" id="percent" checked>
+                        <span class="toggle__label">
+                            <span class="toggle__text">Check Me!</span>
+                        </span>
+                    </label>
+                </div>
+                <div class="page__toggle">
+                    <label class="toggle">
+                        <input class="toggle__input" type="checkbox" id="amount">
+                        <span class="toggle__label">
+                            <span class="toggle__text">Check Me!</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
         </div>
+        @* sprawdzamy czy element o id=percent jest wcisniety, czy id=amount jest wcisniety,
+            jak sa dwa to jakis blad, ze nie moga byc oba, jak percent wcisniety to wyswietlamy strone ChangePercent i ustawiamy User->IfSavingPercent=true, a jak amount to ChangeAmount i User->IsSavingPercent=false
+            ten bool jest w modelu identityModels*@
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Change percent", "ChangePercent", "Savings", new { area = "" }, new { @class = "navbar-brand" })</li>
+            <li>@Html.ActionLink("Change amount", "ChangeAmount", "Savings", new { area = "" }, new { @class = "navbar-brand" })</li>
+        </ul>
 
         <button type="submit" class="btn btn-primary" style="width:200px; margin-left:470px">Save</button>
 
-        }
+    }
+    <link rel="stylesheet" type="text/css" href="~/Content/checkbox.css" />
 </div>
