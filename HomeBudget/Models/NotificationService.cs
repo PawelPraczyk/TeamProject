@@ -12,7 +12,7 @@ namespace HomeBudget.Models
 {
     public class NotificationService
     {
-        static readonly string connString = @"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=C:\Users\Weronika\Desktop\studia\SEMESTR 6\PROJEKT ZESPOLOWY\projekt_nowy\HomeBudget\App_Data\aspnet-HomeBudget-20190326032835.mdf;Initial Catalog=aspnet-HomeBudget-20190326032835;Integrated Security=True";
+        static readonly string connString = @"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=C:\Users\kamil\source\repos\TeamProject4\HomeBudget\aspnet-HomeBudget-20190326032835.mdf;Initial Catalog=aspnet-HomeBudget-20190326032835;Integrated Security=True";
         
         internal static SqlCommand command = null;
         internal static SqlDependency dependency = null;

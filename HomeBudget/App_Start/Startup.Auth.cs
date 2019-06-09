@@ -54,9 +54,9 @@ namespace HomeBudget
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "2290522211190560",
+               appSecret: "7f5d06c4a017d871592cfd094707ebf4");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

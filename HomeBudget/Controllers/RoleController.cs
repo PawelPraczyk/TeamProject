@@ -1,4 +1,5 @@
 ﻿using HomeBudget.Models;
+using HomeBudget.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
@@ -110,7 +111,10 @@ namespace HomeBudget.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        
     }
 
+    
 
 }
