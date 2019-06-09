@@ -1,15 +1,20 @@
 ﻿@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
 @{
-                /**/
+    /**/
 
-                ViewBag.Title = "Add New Role";
+    ViewBag.Title = "Add New Role";
+    Layout = "~/Views/Shared/Layouts/AFTERlogin.cshtml";
 }
-<h2>Add New User Role:</h2>
+<div class="jumbotron" style="height:430px; position: relative;top:220px;background: rgba(90, 166, 130, 0.9); border: 0.5px solid black;">
 
-@using (Html.BeginForm())
-{
-    <p> Enter User Role Name:</p>
+    <h2>Add New User Role:</h2>
+    <hr />
 
-    @Html.EditorFor(m => m.Name)
-    <input type="submit" value="Create Role" />
-}
+    @using (Html.BeginForm())
+    {
+        <h5> Enter User Role Name:</h5>
+
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control col-md-3" })
+        <button type="submit" class="btn btn-primary" style=" margin-left:10px; position:relative; top:-7px ">Create Rolla</button>
+    }
+</div>

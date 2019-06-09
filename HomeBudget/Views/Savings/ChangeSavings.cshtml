@@ -6,24 +6,73 @@
 @{
     Layout = "~/Views/Shared/Layouts/AFTERlogin.cshtml";
 }
-<div  class="jumbotron" style="height:430px; position: relative;top:220px;background: rgba(90, 166, 130, 0.9); border: 0.5px solid black;">
-    <div style="position: relative;top: 70px;">
-        <h2>Change savings</h2>
-
+<div class="jumbotron" style="height:430px; position: relative;top:220px;background: rgba(90, 166, 130, 0.9); border: 0.5px solid black;">
+    <div style="position: relative;top: 0px;">
+        <h2>Your chosen saving system</h2>
+        <hr />
+        @*Wybierz swój sposób oszczędzania!*@
+        @*opis do opcji percent:
+            Jeśli wybierzesz tę opcję, to możesz zadecydować jaką kwotę chcesz zaoszczedzić w miesiącu i
+            określić jaki procent chcesz wydać na daną kategorię.*@
+        @*opis do opcji amount:
+            Jeśli wybierzesz tę opcję, to możesz zadecydować jaką kwotę chcesz zaoszczedzić w miesiącu na daną kategorię.*@
+        @*Nie ważne którą opcję wybierzesz, nasza aplikacja pomoże Ci zaoszczędzić przypominając ile możesz jeszcze wydać!
+            Tak, to takie proste!*@
         @using (Html.BeginForm("ChangeSavings", "Savings"))
         {
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Change percent", "ChangePercent", "Savings", new { area = "" }, new { @class = "navbar-brand" })</li>
-                <li>@Html.ActionLink("Change amount", "ChangeAmount", "Savings", new { area = "" }, new { @class = "navbar-brand" })</li>
-            </ul>
-            <div class="form-group" style="width:200px; margin-left:470px">
-                @Html.LabelFor(m => m.SavingsAmount)
-                @Html.TextBoxFor(m => m.SavingsAmount, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.SavingsAmount)
-            </div>
 
-            <button type="submit" class="btn btn-primary" style="width:200px; margin-left:470px">Save</button>
+            <div class="page" >
+                <div class="page__demo"style="position:relative; top:50px; display:flex; flex-direction:row; justify-content:space-around">
+                    <div class="page__toggle">
+                        <label class="toggle">
+                            <input class="toggle__input" type="checkbox" id="percent" >
+                            <span class="toggle__label">
+                                <span class="toggle__text">Percent system</span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="page__toggle">
+                        <label class="toggle">
+                            <input class="toggle__input" type="checkbox" id="amount" checked="true">
+                            <span class="toggle__label">
+                                <span class="toggle__text" id="kupa">Amount system</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            @* sprawdzamy czy element o id=percent jest wcisniety, czy id=amount jest wcisniety,
+                jak sa dwa to jakis blad, ze nie moga byc oba, jak percent wcisniety to wyswietlamy strone ChangePercent i ustawiamy User->IfSavingPercent=true, a jak amount to ChangeAmount i User->IsSavingPercent=false
+                ten bool jest w modelu identityModels*@
+            
+
+            <button id="btn" type="button" class="btn btn-primary btn-lg" style="width:500px; left:250px; position:relative; top:100px ">Go to your system</button>
 
         }
+        <link rel="stylesheet" type="text/css" href="~/Content/checkbox.css" />
     </div>
     </div>
+<script>
+    var system = document.getElementsByClassName("toggle");
+    var checkBox1 = system[0].children[0];
+    var checkBox2 = system[1].children[0];
+    var button = document.getElementById("btn");
+
+    
+    // system1.children[1].children[0].innerHTML = "no niezle";
+ 
+    button.addEventListener("click", function () {
+        if (checkBox2.checked && checkBox1.checked) {
+            
+            return window.alert("Chose only one saving system")
+        }
+            if(checkBox1.checked)
+            document.location.href = 'http://localhost:57502/Savings/ChangePercent'
+            if (checkBox2.checked)
+            document.location.href = 'http://localhost:57502/Savings/ChangeAmount'
+        i
+        });
+    
+    
+
+</script>

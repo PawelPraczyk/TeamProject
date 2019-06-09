@@ -11,32 +11,32 @@
 <div class="jumbotron" style="position: relative;top:0px;background: rgba(90, 166, 130, 0.9); border: 0.5px solid black;">
 
     <div style=" display: flex; justify-content: space-around; " class="barContainer">
-        <a style="padding: 10px; margin-top: 70px; background: white ; border-radius: 30px; color:  #F4A73B; font-size: 20px; font-weight: bold" ; href="Incomes">INCOMES</a>
-        <a style="padding: 10px; margin-top: 70px; background: white; border-radius: 30px;color:  #F4A73B ; font-size: 20px; font-weight: bold" href="Balance">BALANCE</a>
-        <a style="padding: 10px; margin-top: 70px; background: #F4A73B; border-radius: 30px;color:white  ; font-size: 20px; font-weight: bold" href="Outgoings">OUTGOINGS</a>
+        <a style="padding: 10px; margin-top: 70px; background: white ; border-radius: 30px; color:  #67AC8B; font-size: 20px; font-weight: bold" ; href="Incomes">INCOMES</a>
+        <a style="padding: 10px; margin-top: 70px; background: white; border-radius: 30px;color:  #67AC8B ; font-size: 20px; font-weight: bold" href="Balance">BALANCE</a>
+        <a style="padding: 10px; margin-top: 70px; background: #F64D4D; border-radius: 30px;color:white  ; font-size: 20px; font-weight: bold" href="Outgoings">OUTGOINGS</a>
 
     </div>
     </div>
 <div class="jumbotron" style="position: relative;top:0px;background: rgba(90, 166, 130, 0.9); border: 0.5px solid black;">
-    <h2 style="margin-top: 50px; color: white">History of OUTGOINGS.</h2>
+    <h2 style="margin-top: 50px; color: black">History of OUTGOINGS.</h2>
 
     <h3>@ViewBag.Message</h3>
 
 
-    <h4 style="color: white">Enter your value and search for your outgoings</h4>
+    <h4 style="color:black">Enter your value and search for your outgoings</h4>
 
     <p>
         @using (Html.BeginForm("Outgoings", "History", FormMethod.Get))
         {
-            <input style="border: 3px solid #F4A73B; background: none; color:white" type="text" name="search" placeholder="  " />
-            <input style="background:#F4A73B;color: white; border: 3px solid #F4A73B" type="submit" name="submit" value="Search" />
-            <button style="background:#F4A73B;color: white; border: 3px solid #F4A73B">@Html.ActionLink("Last 7 days", "Outgoings", new { filter = 1 })</button>
-            <button style="background:#F4A73B;color: white; border: 3px solid #F4A73B">@Html.ActionLink("Last 30 days", "Outgoings", new { filter = 2 })</button>
-            <button style="background:#F4A73B;color: white; border: 3px solid #F4A73B">@Html.ActionLink("Last 3 months", "Outgoings", new { filter = 3 })</button>
+            <input style="border: 3px solid white; background: none; color:white" type="text" name="search" placeholder="  " />
+            <input style="background:white;color: #67AC8B; border: 3px solid white" type="submit" name="submit" value="Search" />
+            <button style="background:white;color: white; border: 3px solid white">@Html.ActionLink("Last 7 days", "Outgoings", new { filter = 1 })</button>
+            <button style="background:white;color: white; border: 3px solid white">@Html.ActionLink("Last 30 days", "Outgoings", new { filter = 2 })</button>
+            <button style="background:white;color: white; border: 3px solid white">@Html.ActionLink("Last 3 months", "Outgoings", new { filter = 3 })</button>
         }
     </p>
 
-    <h4 style="text-align: center; font-weight:bold; color:white; font-family: 'Ubuntu'">The list of previous purchases</h4>
+    <h4 style="text-align: center; font-weight:bold; color:black; font-family: 'Ubuntu'">The list of previous purchases</h4>
     <table class="table table-hover table-dark" style="border-radius: 10px">
 
         <thead>
