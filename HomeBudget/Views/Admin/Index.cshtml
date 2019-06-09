@@ -1,11 +1,14 @@
 ﻿
 @{
     ViewData["Title"] = "Admin Page";
+    Layout = "~/Views/Shared/Layouts/AFTERlogin.cshtml";
 }
-
-<h1>Welcome Admin. Now you can create user Role.</h1>
-<h3>
-    <ul>
-        <li>@Html.ActionLink("Manage Role", "Index", "Role")</li>
-    </ul>
-</h3>
+<div class="jumbotron" style="height:430px; position: relative;top:220px;background: rgba(90, 166, 130, 0.9); border: 0.5px solid black;">
+    <h2>Welcome Admin. Now you can create user Role.</h2>
+    <hr />
+    <h3>
+        <ul>
+            <li>@Html.ActionLink("Manage Role", "Index", "Role")</li>
+        </ul>
+    </h3>
+    </div>

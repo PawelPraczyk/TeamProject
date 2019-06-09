@@ -38,7 +38,7 @@
                     <li>@Html.ActionLink("Add income", "CreateIncome", "Incomes", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("History", "Balance", "History", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("Savings", "ChangeSavings", "Savings", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("Not", "ListOfNotifications", "Notifications", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Notifications", "ListOfNotifications", "Notifications", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("Admin Page", "Index", "Admin", new { area = "" }, new { @class = "navbar-brand" })</li>
 
                 }
@@ -49,7 +49,8 @@
                     <li>@Html.ActionLink("Add income", "CreateIncome", "Incomes", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("History", "Balance", "History", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("Savings", "ChangeSavings", "Savings", new { area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("Not", "ListOfNotifications", "Notifications", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    @*<li  ><img style="position:relative; height:30px; top:11px" src="https://www.iconsdb.com/icons/preview/color/5AA682/envelope-closed-xxl.png" /></li>*@
+                    <li >@Html.ActionLink("Notifications", "ListOfNotifications", "Notifications", new { area = "" }, new { @class = "navbar-brand" })</li>
                 }
             </ul>
 

@@ -6,7 +6,8 @@
 <div class="jumbotron" style="height:430px; position: relative;top:220px;background: rgba(90, 166, 130, 0.9); border: 0.5px solid black;">
 
 <h2>ChangePercent</h2>
-@using (Html.BeginForm("ChangeSavings", "Savings"))
+<hr />
+@*@using (Html.BeginForm("ChangeSavings", "Savings"))
 {
     <div class="form-group" style="width:200px; margin-left:470px">
         @Html.LabelFor(m => m.User.SavingsAmount)
@@ -15,11 +16,11 @@
     </div>
 
     <button type="submit" class="btn btn-primary" style="width:200px; margin-left:470px">Save</button>
-}
+}*@
 
 @using (Html.BeginForm("ChangePercent", "Savings"))
 {
-    <div class="form-group" style="width:200px; margin-left:470px">
+    <div class="form-group" style="width:300px; margin-left:330px">
         @*@for (int i=0; i<Model.Categories.Count();i++)
             {
                 @Html.LabelFor(m => m.Categories.ElementAt(i).Name)
@@ -31,13 +32,13 @@
             @Html.DropDownListFor(m => m.category, new SelectList(Model.Categories, "Id", "Name", "Color"), "", new { @class = "form-control" })
         </div>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group" style="width:200px; margin-left:470px">
-            @Html.LabelFor(m => m.PercentMoney);
-            @Html.TextBoxFor(m => m.PercentMoney);
+        <div class="form-group" style="width:300px; margin-left:330px">
+            @Html.LabelFor(m => m.PercentMoney)
+            @Html.TextBoxFor(m => m.PercentMoney, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.PercentMoney)
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width:200px; margin-left:470px">Save</button>
+        <button type="submit" class="btn btn-primary" style="width:300px; margin-left:330px">Save</button>
 
     }
     </div>
