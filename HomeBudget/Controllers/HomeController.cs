@@ -8,23 +8,20 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
-
+using log4net;
 
 namespace HomeBudget.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private static readonly log4net.ILog log = LogHelper.GetLogger(); //log4net.LogManager.GetLogger(typeof(HomeController));
+
+        public ActionResult Index() 
         {
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
+      
 
         public FileContentResult UserPhotos()
         {

@@ -13,6 +13,7 @@ namespace HomeBudget.Controllers
     [Authorize]
     public class ManageController : Controller
     {
+        private static readonly log4net.ILog log = LogHelper.GetLogger();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -86,6 +87,10 @@ namespace HomeBudget.Controllers
             if (result.Succeeded)
             {
                 var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                if (user == null)
+                {
+                    throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
+                }
                 if (user != null)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -138,6 +143,10 @@ namespace HomeBudget.Controllers
         {
             await UserManager.SetTwoFactorEnabledAsync(User.Identity.GetUserId(), true);
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            if (user == null)
+            {
+                throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
+            }
             if (user != null)
             {
                 await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -153,6 +162,10 @@ namespace HomeBudget.Controllers
         {
             await UserManager.SetTwoFactorEnabledAsync(User.Identity.GetUserId(), false);
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            if (user == null)
+            {
+                throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
+            }
             if (user != null)
             {
                 await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -183,6 +196,10 @@ namespace HomeBudget.Controllers
             if (result.Succeeded)
             {
                 var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                if (user == null)
+                {
+                    throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
+                }
                 if (user != null)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -206,6 +223,10 @@ namespace HomeBudget.Controllers
                 return RedirectToAction("Index", new { Message = ManageMessageId.Error });
             }
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            if (user == null)
+            {
+                throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
+            }
             if (user != null)
             {
                 await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -230,10 +251,15 @@ namespace HomeBudget.Controllers
             {
                 return View(model);
             }
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            if (user == null)
+            {
+                throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
+            }
             var result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
             if (result.Succeeded)
             {
-                var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                
                 if (user != null)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -263,6 +289,10 @@ namespace HomeBudget.Controllers
                 if (result.Succeeded)
                 {
                     var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                    if (user == null)
+                    {
+                        throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
+                    }
                     if (user != null)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -287,7 +317,7 @@ namespace HomeBudget.Controllers
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             if (user == null)
             {
-                return View("Error");
+                throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
             }
             var userLogins = await UserManager.GetLoginsAsync(User.Identity.GetUserId());
             var otherLogins = AuthenticationManager.GetExternalAuthenticationTypes().Where(auth => userLogins.All(ul => auth.AuthenticationType != ul.LoginProvider)).ToList();
