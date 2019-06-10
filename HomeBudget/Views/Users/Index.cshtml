@@ -1,20 +1,26 @@
 ﻿@{
-    ViewBag.Title = "Index";
+                /**/
+
+                ViewBag.Title = "Index";
+                Layout = "~/Views/Shared/Layouts/AFTERlogin.cshtml";
 }
 
 
 
 @if (ViewBag.displayMenu == "Yes")
 {
-    <h1>Welcome Admin. Now you can create user Role.</h1>
-    <h3>
-        <ul>
-            <li>@Html.ActionLink("Manage Role", "Index", "Role")</li>
-        </ul>
-    </h3>
-}
-else
-{
-    <h2>  Welcome <strong>@ViewBag.Name</strong> :) .We will add user module soon </h2>
-}
+    <div class="jumbotron" style="position: relative; top:220px;background: rgba(90, 166, 130, 0.9); border: 0.5px solid black;">
+        <h1 id="container">
+            <h1>Welcome Admin. Now you can create user Role.</h1>
+            <h3>
+                <ul>
+                    <li>@Html.ActionLink("Manage Role", "Index", "Role")</li>
+                </ul>
+            </h3>
+            }
+            else
+            {
+            <h2>  Welcome <strong>@ViewBag.Name</strong> :) .We will add user module soon </h2>
+            }
 
+</div>

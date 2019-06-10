@@ -2,124 +2,119 @@
 
 @{
     ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/Layouts/AFTERlogin.cshtml";
 }
+<div class="jumbotron" style=" position: relative;top:220px;background: rgba(90, 166, 130, 0.9); border: 0.5px solid black;">
+    <h2>Create</h2>
+    <hr />
 
-<h2>Create</h2>
+    @using (Html.BeginForm("Create", "Category"))
+    {
+        @Html.AntiForgeryToken()
 
+        <div class="form-horizontal">
 
-@using (Html.BeginForm("Create", "Category"))
-{
-    @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="form-horizontal">
-        <h4>Category</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10" style="position; top:10px">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group" style="width:200px; margin-left:470px">
-            @Html.LabelFor(m => m.Color.Id)
-            @*@Html.DropDownListFor(m => m.Color, new SelectList(Model.Colors, "Id", "Color"), "", new { @class = "form-control" })*@
-            @*@Html.Hidden("Color", Model.Color.Id, new { @style = "height:5px" })
-                <select id="myColors" class="form-group" style="width:100px">
-                    @foreach (var item in Model.Colors)
+            <div class="form-group" style="width:200px; margin-left:470px">
+                @*@Html.LabelFor(m => m.Color.Id)*@
+                @*@Html.DropDownListFor(m => m.Color, new SelectList(Model.Colors, "Id", "Color"), "", new { @class = "form-control" })*@
+                @*@Html.Hidden("Color", Model.Color.Id, new { @style = "height:5px" })
+                    <select id="myColors" class="form-group" style="width:100px">
+                        @foreach (var item in Model.Colors)
+                        {
+                        <option value="@item.Id" src="" style="background-color:@item.Color"
+                                data-description=""></option>
+                        }
+
+                    </select>*@
+                @*<select class="form-control" id=@Model.Color name=@Model.Color>
+                        @foreach (var item in Model.Colors)
+                        {
+                            <option id=@item style="background-color:@item.Color" value=@item></option>
+                        }
+                    </select>*@
+            </div>
+
+            <div class="form-group" style="width:1000px; margin-left:470px">
+                @* @Html.LabelFor(m => m.Icon.Id)*@
+                @*@Html.DropDownListFor(m => m.Color, new SelectList(Model.Colors, "Id", "Color"), "", new { @class = "form-control" })*@
+                @*<label for=@Model.Icon>Choose an icon: </label>*@
+                @*@Html.Hidden("Icon",Model.Icon.Id)*@
+                <select id="myDropdown" class="form-group" style="width:1000px">
+                    @foreach (var item in Model.Icons)
                     {
-                    <option value="@item.Id" src="" style="background-color:@item.Color"
-                            data-description=""></option>
+                        <option value="@item.Id" data-imagesrc="@item.ImagePath"
+                                data-description=""></option>
                     }
 
-                </select>*@
-            @*<select class="form-control" id=@Model.Color name=@Model.Color>
-                    @foreach (var item in Model.Colors)
-                    {
-                        <option id=@item style="background-color:@item.Color" value=@item></option>
-                    }
-                </select>*@
-        </div>
-
-        <div class="form-group" style="width:200px; margin-left:470px">
-            @Html.LabelFor(m => m.Icon.Id)
-            @*@Html.DropDownListFor(m => m.Color, new SelectList(Model.Colors, "Id", "Color"), "", new { @class = "form-control" })*@
-            @*<label for=@Model.Icon>Choose an icon: </label>*@
-            @Html.HiddenFor(m => m.Icon.Id, new { id = "Icon" })
-            @*@Html.Hidden("Icon",Model.Icon.Id)*@
-            <select id="myDropdown" class="form-group">
-                @foreach (var item in Model.Icons)
-                {
-                    <option value="@item.Id" data-imagesrc="@item.ImagePath"
-                            data-description=""></option>
-                }
-
-            </select>
-        </div>
-
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                </select>
             </div>
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <button id="btn" type="button" class="btn btn-primary btn-lg" style="width:500px; left:250px; position:relative;  ">Go to your system</button>
         </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    <script src="~/Scripts/jquery.ddslick.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
-    <script>
-        $('#myDropdown').ddslick({
-            onSelected: function (selectedData) {
-                $('#demoShowSelected').data('ddslick');
-                $('#showSelectedData').data('ddslick');
-                //document.getElementById('Icon').value = Data.selectedData.value;
-            }
-        });
-        $('#demoShowSelected').ddslick({
-            data: ddData,
-            selectText: "Select your favorite social network",
-            //document.getElementById('Icon').value = ddData.selectedData.value;
-        });
-        $('#showSelectedData').on('click', function () {
-            var ddData = $('#demoShowSelected').data('ddslick');
-            document.getElementById('Icon').value = ddData.selectedData.value;
-            displaySelectedData("2: Getting Selected Dropdown Data", ddData);
-        });
-
-        $('#demoDefaultSelection').ddslick({
-            data: ddData,
-            defaultSelectedIndex: 2
-        });
-    </script>
-
-
-    @*<script>
-            $('#myColors').ddslick({
-                width: 100,
+</div>  
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script src="~/Scripts/jquery.ddslick.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
+        <script>
+            $('#myDropdown').ddslick({
                 onSelected: function (selectedData) {
                     $('#demoShowSelected').data('ddslick');
+                    $('#showSelectedData').data('ddslick');
+                    //document.getElementById('Icon').value = Data.selectedData.value;
                 }
             });
             $('#demoShowSelected').ddslick({
                 data: ddData,
                 selectText: "Select your favorite social network",
+                //document.getElementById('Icon').value = ddData.selectedData.value;
             });
             $('#showSelectedData').on('click', function () {
                 var ddData = $('#demoShowSelected').data('ddslick');
-                document.getElementById('Color').value = ddData.value;
+                document.getElementById('Icon').value = ddData.selectedData.value;
                 displaySelectedData("2: Getting Selected Dropdown Data", ddData);
             });
-        </script>*@
-}
+
+            $('#demoDefaultSelection').ddslick({
+                data: ddData,
+                defaultSelectedIndex: 2
+            });
+        </script>
+
+
+        @*<script>
+                $('#myColors').ddslick({
+                    width: 100,
+                    onSelected: function (selectedData) {
+                        $('#demoShowSelected').data('ddslick');
+                    }
+                });
+                $('#demoShowSelected').ddslick({
+                    data: ddData,
+                    selectText: "Select your favorite social network",
+                });
+                $('#showSelectedData').on('click', function () {
+                    var ddData = $('#demoShowSelected').data('ddslick');
+                    document.getElementById('Color').value = ddData.value;
+                    displaySelectedData("2: Getting Selected Dropdown Data", ddData);
+                });
+            </script>*@
+    }
