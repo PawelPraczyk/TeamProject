@@ -34,7 +34,10 @@ namespace HomeBudget.Controllers
         {
             var userId = User.Identity.GetUserId();
             var user = db.Users.Single(u => u.Id == userId);
-
+            if (user == null)
+            {
+                throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
+            }
 
             var fixedExpense = new FixedExpense
             {

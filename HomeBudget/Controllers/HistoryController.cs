@@ -26,10 +26,16 @@ namespace HomeBudget.Controllers
         {
             var userId = User.Identity.GetUserId();
             var user = _context.Users.Single(u => u.Id == userId);
+            if (user == null)
+            {
+                throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
+            }
             var incomesHistory = _context.Incomes;
             var expensesHistory = _context.Expenses;
             var historyBalance = incomesHistory.AsEnumerable().Where(g => g.User == user).Sum(s => s.Price);
             var expensesBalance = expensesHistory.AsEnumerable().Where(g => g.User == user).Sum(s => s.Price);
+
+
 
             Balance balance = new Balance
             {

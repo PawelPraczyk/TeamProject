@@ -15,6 +15,7 @@ namespace HomeBudget.Models
 {
     public static class IdentityExtensions
     {
+        
         public static string GetEmailAdress(this IIdentity identity)
         {
 
@@ -22,12 +23,17 @@ namespace HomeBudget.Models
             using (var context = new ApplicationDbContext())
             {
                 var user = context.Users.FirstOrDefault(u => u.Id == userId);
+                if (user == null)
+                {
+                    throw new ApplicationException($"Unable to load user with this ID.");
+                }
                 return user.Email;
             }
         }
     }
     public class AddNotification
     {
+        private static readonly log4net.ILog log = LogHelper.GetLogger();
         private readonly ApplicationDbContext _context;
         
 
@@ -63,6 +69,7 @@ namespace HomeBudget.Models
 
                 isSend = true;
             }
+            log.Info($"Email with remainer has been send to {email}");
             return isSend;
         }
 
@@ -74,7 +81,7 @@ namespace HomeBudget.Models
                 Message = string.Format(@"You have 24 hours to pay for {0}", name),
                 Date = DateTime.Now
             };
-
+            log.Info("Notification have been set.");
             _context.Notifications.Add(notifications);
             _context.SaveChanges();
         }

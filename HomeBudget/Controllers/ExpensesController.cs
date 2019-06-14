@@ -38,6 +38,12 @@ namespace HomeBudget.Controllers
             var userId = User.Identity.GetUserId();
             var user = _context.Users.Single(u => u.Id == userId);
             var category = _context.Categories.Single(c => c.Id == viewModel.Category);
+
+            if (user == null)
+            {
+                throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
+            }
+
             var expense = new Expense
 
             {

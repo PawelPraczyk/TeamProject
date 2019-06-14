@@ -46,6 +46,12 @@ namespace HomeBudget.Controllers
                 var user = _context.Users.Single(u => u.Id == userId);
                 var icon = _context.Icons.Single(c => c.Id == cat.Icon.Id);
                 var color = _context.Colors.Single(c => c.Id == cat.Color.Id);
+
+                if (user == null)
+                {
+                    throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
+                }
+
                 var category = new Category
                 {
                     Name = cat.Name,
