@@ -71,8 +71,9 @@
                 <div style=" position:relative; width:200px; margin:50px; top:50px">
                     <div style="position:relative" class="form-group" style="width:200px; margin-left:470px">
                         @Html.LabelFor(m => m.Category)
+                        @data
                         @Html.DropDownListFor(m => m.Category, new SelectList(Model.CategoryIncomes, "Id", "Name", "Color"), "", new { @class = "form-control form-control-lg" })
-
+                        @Html.DropDownListFor(model => model.
                     </div>
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <div style="position:relative" class="form-group" style="width:200px; margin-left:470px">
@@ -84,22 +85,22 @@
                     </div>
                 </div>
             </div>
-            @*<div class="form-group" style="width:200px; margin-left:470px">
-                @Html.LabelFor(m => m.Time)
-                @Html.TextBoxFor(m => m.Time, new { @class = "form-control", placeholder = "eg 20:00" })
-                @Html.ValidationMessageFor(m => m.Time)
-            </div>*@
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Save</button>
-            <link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/hot-sneaks/jquery-ui.css" rel="stylesheet" />
+                    @*<div class="form-group" style="width:200px; margin-left:470px">
+        @Html.LabelFor(m => m.Time)
+        @Html.TextBoxFor(m => m.Time, new { @class = "form-control", placeholder = "eg 20:00" })
+        @Html.ValidationMessageFor(m => m.Time)
+    </div>*@
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Save</button>
+                        <link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/hot-sneaks/jquery-ui.css" rel="stylesheet" />
 
-        }
+                        }
 
 
-    </div>
+                    </div>
 @section Scripts {
     <script src="~/Scripts/jquery-1.12.4.min.js"></script>
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>

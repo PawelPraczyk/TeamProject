@@ -67,10 +67,10 @@
             </div>
         
        <div style=" position:relative; width:200px; margin:50px; top:50px">
-           <div style="position:relative"  class="form-group" style="width:200px; margin-left:470px">
+           <div style="position:relative" class="form-group" style="width:200px; margin-left:470px">
                @Html.LabelFor(m => m.Category)
                @Html.DropDownListFor(m => m.Category, new SelectList(Model.Categories, "Id", "Name", "Color"), "", new { @class = "form-control form-control-lg" })
-
+      
            </div>
            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
            <div  style="position:relative" class="form-group" style="width:200px; margin-left:470px">

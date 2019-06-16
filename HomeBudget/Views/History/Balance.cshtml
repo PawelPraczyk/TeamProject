@@ -26,10 +26,10 @@
 
 
 
-            <h3 style="top:50px;position: relative;"><span style=" color:black; font-family: 'Ubuntu'"> Your current balance: </span> <span style="color:black; font-family: 'Ubuntu'">@data.UserBalance PLN</span> </h3>
+            <h3 style="top:50px;position: relative;"><span style=" color:black; font-family: 'Ubuntu'"> Your current balance: </span><span style="color:black; font-family: 'Ubuntu'">@data.UserBalance PLN</span> </h3>
 
 
-            <div id="line" style="position:relative;  border: 1px solid black; position:relative; max-width:100%;">
+            <div id="line" style="position:relative;  border: 1px solid black; position:relative; max-width:100%;min-width:100%;">
                 <div id="in"> <span style="font-size:1.4rem"> <span style="font-size:1.8rem">+</span> @data.IncomesSum PLN </span></div>
                 <div id="out"><span style="font-size:1.4rem"> <span style="font-size:1.8rem">-</span> @data.ExpensesSum PLN</span></div>
             </div>
@@ -37,6 +37,7 @@
     </div>
 </body>
 <script>
+
 
     var inJJ = '@data.IncomesSum';
     var outJJ = '@data.ExpensesSum';
@@ -85,10 +86,10 @@
         income.style.width = '50%';
         outgoing.style.width = '50%';
     }
-    if (inJ ===0  ) {
+    if (widthIn <=10  ) {
         income.innerHTML = " "
     }
-    if (outJ === 0) {
+    if (widthOut <=10) {
         outgoing.innerHTML = " "
     }
     var button = document.getElementById("jlink");
