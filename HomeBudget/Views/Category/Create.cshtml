@@ -44,77 +44,21 @@
                     </select>*@
             </div>
 
-            <div class="form-group" style="width:1000px; margin-left:470px">
-                @* @Html.LabelFor(m => m.Icon.Id)*@
-                @*@Html.DropDownListFor(m => m.Color, new SelectList(Model.Colors, "Id", "Color"), "", new { @class = "form-control" })*@
-                @*<label for=@Model.Icon>Choose an icon: </label>*@
-                @*@Html.Hidden("Icon",Model.Icon.Id)*@
-                <select id="myDropdown" class="form-group" style="width:1000px">
-                    @foreach (var item in Model.Icons)
-                    {
-                        <option value="@item.Id" data-imagesrc="@item.ImagePath"
-                                data-description=""></option>
-                    }
-
-                </select>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
-
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-            <button id="btn" type="button" class="btn btn-primary btn-lg" style="width:500px; left:250px; position:relative;  ">Go to your system</button>
         </div>
-    }
-
-    <div>
-        @Html.ActionLink("Back to List", "Index")
     </div>
-</div>  
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-        <script src="~/Scripts/jquery.ddslick.js"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-        <script type="text/javascript" src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
-        <script>
-            $('#myDropdown').ddslick({
-                onSelected: function (selectedData) {
-                    $('#demoShowSelected').data('ddslick');
-                    $('#showSelectedData').data('ddslick');
-                    //document.getElementById('Icon').value = Data.selectedData.value;
-                }
-            });
-            $('#demoShowSelected').ddslick({
-                data: ddData,
-                selectText: "Select your favorite social network",
-                //document.getElementById('Icon').value = ddData.selectedData.value;
-            });
-            $('#showSelectedData').on('click', function () {
-                var ddData = $('#demoShowSelected').data('ddslick');
-                document.getElementById('Icon').value = ddData.selectedData.value;
-                displaySelectedData("2: Getting Selected Dropdown Data", ddData);
-            });
+}
 
-            $('#demoDefaultSelection').ddslick({
-                data: ddData,
-                defaultSelectedIndex: 2
-            });
-        </script>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 
-
-        @*<script>
-                $('#myColors').ddslick({
-                    width: 100,
-                    onSelected: function (selectedData) {
-                        $('#demoShowSelected').data('ddslick');
-                    }
-                });
-                $('#demoShowSelected').ddslick({
-                    data: ddData,
-                    selectText: "Select your favorite social network",
-                });
-                $('#showSelectedData').on('click', function () {
-                    var ddData = $('#demoShowSelected').data('ddslick');
-                    document.getElementById('Color').value = ddData.value;
-                    displaySelectedData("2: Getting Selected Dropdown Data", ddData);
-                });
-            </script>*@
-    }
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery.ddslick.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
+}
