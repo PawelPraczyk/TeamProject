@@ -30,8 +30,6 @@ namespace HomeBudget.Controllers
         {
             var cat = new Category
             {
-                Colors = _context.Colors.ToList(),
-                Icons = _context.Icons.ToList(),
             };
             return View(cat);
         }
@@ -42,16 +40,15 @@ namespace HomeBudget.Controllers
         { //jesli zaznaczono kategorie wydatkow, a jesli nie to do categoryincomes
             try
             {
+                byte byt = _context.Categories.ToList().Last().Id;
+                byte plus = (byte)1;
                 var userId = User.Identity.GetUserId();
                 var user = _context.Users.Single(u => u.Id == userId);
-                var icon = _context.Icons.Single(c => c.Id == cat.Icon.Id);
-                var color = _context.Colors.Single(c => c.Id == cat.Color.Id);
                 var category = new Category
                 {
+                    Id = (byte)(byt+plus),
                     Name = cat.Name,
-                    Color = color,
                     User = user,
-                    Icon = icon,
                     AvailableMoney = 0,
                     SpendMoney = 0,
                     AmountMoney = 0,
@@ -68,20 +65,27 @@ namespace HomeBudget.Controllers
         }
 
         // GET: Category/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit()
         {
-            return View();
+            var cat = new Category
+            {
+                Categories = _context.Categories.ToList(),
+            };
+            return View(cat);
         }
 
         // POST: Category/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Category cat)
         {
             try
             {
-                // TODO: Add update logic here
+                var userId = User.Identity.GetUserId();
+                var user = _context.Users.Single(u => u.Id == userId);
+                _context.Categories.Single(c => c.Id == cat.category).Name = cat.Name;
+                _context.SaveChanges();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit");
             }
             catch
             {
