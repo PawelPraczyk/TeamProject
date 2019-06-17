@@ -337,6 +337,10 @@
     <Compile Include="Migrations\201906161044156_deleteIconsAndColors.Designer.cs">
       <DependentUpon>201906161044156_deleteIconsAndColors.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906171046465_xd.cs" />
+    <Compile Include="Migrations\201906171046465_xd.Designer.cs">
+      <DependentUpon>201906171046465_xd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddNotification.cs" />
@@ -649,6 +653,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906161044156_deleteIconsAndColors.resx">
       <DependentUpon>201906161044156_deleteIconsAndColors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906171046465_xd.resx">
+      <DependentUpon>201906171046465_xd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
