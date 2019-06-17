@@ -2,55 +2,55 @@
 
 @{
     ViewBag.Title = "Users With Roles";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/Layouts/AFTERlogin.cshtml";
 }
+<div class="jumbotron" style="height:430px; position: relative;top:220px;background: rgba(90, 166, 130, 0.9); border: 0.5px solid black;">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="box-title">
+                <b>Users with Roles</b>
+            </h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="panel-body">
+            <table class="table table-hover table-bordered table-condensed" id="example1">
+                <thead>
+                    <tr>
+                        <td><b>Username</b></td>
+                        <td><b>Email</b></td>
+                        <td><b>Roles</b></td>
+                    </tr>
+                </thead>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.Username</td>
+                        <td>@user.Email</td>
+                        <td>@user.Role</td>
 
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="box-title">
-            <b>Users with Roles</b>
-        </h3>
+                    </tr>
+                }
+            </table>
+        </div>
+
+        <div class="panel-footer">
+            <p class="box-title"><b>Total Users till @String.Format("{0 : dddd, MMMM d, yyyy}", DateTime.Now)  : </b><span class="label label-primary">@Model.Count()</span></p>
+        </div>
     </div>
-    <!-- /.box-header -->
-    <div class="panel-body">
-        <table class="table table-hover table-bordered table-condensed" id="example1">
-            <thead>
-                <tr>
-                    <td><b>Username</b></td>
-                    <td><b>Email</b></td>
-                    <td><b>Roles</b></td>
-                </tr>
-            </thead>
-            @foreach (var user in Model)
-            {
-                <tr>
-                    <td>@user.Username</td>
-                    <td>@user.Email</td>
-                    <td>@user.Role</td>
-
-                </tr>
-            }
-        </table>
     </div>
 
-    <div class="panel-footer">
-        <p class="box-title"><b>Total Users till @String.Format("{0 : dddd, MMMM d, yyyy}", DateTime.Now)  : </b><span class="label label-primary">@Model.Count()</span></p>
-    </div>
-</div>
-
-
-@section scripts{
-    <script>
-        $(function () {
-            $("#example1").DataTable();
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": true,
-                "searching": true,
-                "ordering": true,
-                "info": true,
-                "autoWidth": true
+    @section scripts{
+        <script>
+            $(function () {
+                $("#example1").DataTable();
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": true,
+                    "searching": true,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": true
+                });
             });
-        });
-    </script>
-}
+        </script>
+    }
