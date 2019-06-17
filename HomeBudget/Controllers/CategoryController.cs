@@ -44,6 +44,14 @@ namespace HomeBudget.Controllers
                 byte plus = (byte)1;
                 var userId = User.Identity.GetUserId();
                 var user = _context.Users.Single(u => u.Id == userId);
+                var icon = _context.Icons.Single(c => c.Id == cat.Icon.Id);
+                var color = _context.Colors.Single(c => c.Id == cat.Color.Id);
+
+                if (user == null)
+                {
+                    throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
+                }
+
                 var category = new Category
                 {
                     Id = (byte)(byt+plus),

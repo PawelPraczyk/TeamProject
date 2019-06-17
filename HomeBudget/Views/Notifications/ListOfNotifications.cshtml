@@ -47,7 +47,7 @@
                 $.connection.hub.start();
                 getData();
                 function getData() {
-                    var divNotificaion = $('#divNotificaion');
+                   // var divNotificaion = $('#divNotificaion');
                     $.ajax({
                         url: '/Notifications/GetNotification',
                         type: 'GET',
@@ -55,10 +55,10 @@
                         success: function (data) {
                             debugger
                             data = $.parseJSON(data);
-                            if (data.length > 0) {
-                                divNotificaion.empty();
+                            //if (data.length > 0) {
+                               // divNotificaion.empty();
                                 //// set Count
-                                $('#ntCnt').text(data.length);
+                               // $('#ntCnt').text(data.length);
                                 //Make notification html
                                 //for (var i = 0; i < data.length; i++) {
 

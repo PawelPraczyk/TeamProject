@@ -20,6 +20,10 @@ namespace HomeBudget.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 var user = User.Identity;
+                if (user == null)
+                {
+                    throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
+                }
                 ApplicationDbContext context = new ApplicationDbContext();
                 var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
                 var s = UserManager.GetRoles(user.GetUserId());
@@ -39,6 +43,10 @@ namespace HomeBudget.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 var user = User.Identity;
+                if (user == null)
+                {
+                    throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
+                }
                 ViewBag.Name = user.Name;
                 //	ApplicationDbContext context = new ApplicationDbContext();
                 //	var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));

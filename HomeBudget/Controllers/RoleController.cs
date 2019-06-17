@@ -50,6 +50,10 @@ namespace HomeBudget.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 var user = User.Identity;
+                if (user == null)
+                {
+                    throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
+                }
                 var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
                 var s = UserManager.GetRoles(user.GetUserId());
                 if (s[0].ToString() == "Admin")

@@ -26,6 +26,10 @@ namespace HomeBudget.Controllers
         {
             var userId = User.Identity.GetUserId();
             var usero = _context.Users.Single(u => u.Id == userId);
+            if (usero == null)
+            {
+                throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
+            }
             if (usero.IfSavingsPercent)
             {
                 var store = new UserStore<ApplicationUser>(_context);
@@ -64,6 +68,10 @@ namespace HomeBudget.Controllers
         {
             var userId = User.Identity.GetUserId();
             var userr = _context.Users.Single(u => u.Id == userId);
+            if (userr == null)
+            {
+                throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
+            }
             var incomesHistory = _context.Incomes;
             var IncomesSum = incomesHistory.AsEnumerable().Where(g => g.User == userr).Sum(s => s.Price);
             var SavingsAmount = userr.SavingsAmount;     
@@ -88,6 +96,10 @@ namespace HomeBudget.Controllers
         {
             var userId = User.Identity.GetUserId();
             var userr = _context.Users.Single(u => u.Id == userId);
+            if (userr == null)
+            {
+                throw new ApplicationException($"Unable to load user with ID '{User.Identity.GetUserId()}'.");
+            }
             _context.Categories.Find(categoryModel.category).AmountMoney = categoryModel.AmountMoney;
             _context.Categories.Find(categoryModel.category).AvailableMoney = _context.Categories.Find(categoryModel.category).AmountMoney - _context.Categories.Find(categoryModel.category).SpendMoney;
             _context.SaveChanges();
